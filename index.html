@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gereja Kristen Injili Indonesia (GKII) Jembatan Dua</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .fade { animation: fadeAnim 1.5s; }
+        @keyframes fadeAnim { from {opacity:.4} to {opacity:1} }
+
+        /* Timeline sejarah */
+        .tl-line { position:absolute; left:20px; top:0; bottom:0; width:3px; background:linear-gradient(#facc15,#ca8a04); border-radius:9999px; }
+        @media (min-width:768px){ .tl-line { left:50%; transform:translateX(-50%); } }
+        .tl-item { opacity:0; transform:translateY(24px); transition:all .7s ease; }
+        .tl-item.show { opacity:1; transform:none; }
+    </style>
+</head>
+<body class="bg-slate-50 text-gray-800 font-sans flex flex-col min-h-screen">
+
+    <!-- Top Bar: Aplikasi GKII One -->
+    <div class="bg-yellow-500 text-white text-center py-2 px-4 text-sm md:text-base font-semibold flex flex-col md:flex-row justify-center items-center gap-2 md:gap-4 relative z-50 shadow-md">
+        <span><i class="fa-solid fa-mobile-screen-button mr-2"></i>Dapatkan info & update terbaru melalui Aplikasi GKII One!</span>
+        <a href="https://play.google.com/store/apps/details?id=org.gkii.gkiione.gkiione&pcampaignid=web_share" target="_blank" class="bg-white text-yellow-600 px-4 py-1 rounded-full text-xs md:text-sm font-bold hover:bg-yellow-100 hover:shadow transition-all duration-300">
+            <i class="fa-brands fa-google-play mr-1"></i> Download di Play Store
+        </a>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="navigate('home')">
+                    <img src="Images/logo GKII.png" alt="Logo GKII" class="w-10 h-10 object-contain">
+                    <div>
+                        <h1 class="text-xl font-bold text-gray-900 leading-tight">GKII</h1>
+                        <p class="text-xs text-yellow-600 font-semibold tracking-wide">Jembatan Dua</p>
+                    </div>
+                </div>
+
+                <div class="hidden md:flex space-x-6 items-center">
+                    <button onclick="navigate('home')" class="text-gray-700 hover:text-yellow-500 font-medium transition">Beranda</button>
+                    <button onclick="navigateAndScroll('sejarah')" class="text-gray-700 hover:text-yellow-500 font-medium transition">Sejarah</button>
+                    <button onclick="navigateAndScroll('jadwal')" class="text-gray-700 hover:text-yellow-500 font-medium transition">Jadwal Kebaktian</button>
+                    <button onclick="navigateAndScroll('persembahan')" class="text-gray-700 hover:text-yellow-500 font-medium transition">Persembahan</button>
+                    <button onclick="navigate('event')" class="text-gray-700 hover:text-yellow-500 font-medium transition"><i class="fa-regular fa-calendar-days mr-1"></i> Kalender Event</button>
+                    <a href="https://remajagkii.vercel.app/" target="_blank" rel="noopener" class="text-purple-600 hover:text-purple-800 font-semibold transition">Remaja <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
+                    <button onclick="openAdmin()" title="Admin" class="text-gray-400 hover:text-yellow-500 transition"><i class="fa-solid fa-lock"></i></button>
+                </div>
+
+                <div class="md:hidden flex items-center">
+                    <button class="text-gray-700 hover:text-yellow-500" onclick="toggleMobileMenu()" aria-label="Menu">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-4 pt-2 pb-4 space-y-2">
+            <button onclick="navigate('home'); toggleMobileMenu()" class="w-full text-left px-3 py-2 text-gray-700 hover:bg-yellow-50 rounded-md">Beranda</button>
+            <button onclick="navigateAndScroll('sejarah'); toggleMobileMenu()" class="w-full text-left px-3 py-2 text-gray-700 hover:bg-yellow-50 rounded-md">Sejarah</button>
+            <button onclick="navigateAndScroll('jadwal'); toggleMobileMenu()" class="w-full text-left px-3 py-2 text-gray-700 hover:bg-yellow-50 rounded-md">Jadwal Kebaktian</button>
+            <button onclick="navigateAndScroll('persembahan'); toggleMobileMenu()" class="w-full text-left px-3 py-2 text-gray-700 hover:bg-yellow-50 rounded-md">Persembahan</button>
+            <button onclick="navigate('event'); toggleMobileMenu()" class="w-full text-left px-3 py-2 text-gray-700 hover:bg-yellow-50 rounded-md"><i class="fa-regular fa-calendar-days mr-1"></i> Kalender Event</button>
+            <a href="https://remajagkii.vercel.app/" target="_blank" rel="noopener" class="block w-full text-left px-3 py-2 text-purple-600 font-semibold hover:bg-purple-50 rounded-md">Website Remaja <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
+            <button onclick="openAdmin(); toggleMobileMenu()" class="w-full text-left px-3 py-2 text-gray-500 hover:bg-yellow-50 rounded-md"><i class="fa-solid fa-lock mr-1"></i> Admin</button>
+        </div>
+    </nav>
+
+    <main class="flex-grow">
+
+        <!-- ==================== HALAMAN BERANDA ==================== -->
+        <div id="page-home" class="block">
+
+            <!-- Hero Slider -->
+            <header class="relative w-full h-[60vh] md:h-[70vh] bg-gray-900 overflow-hidden">
+                <div id="slider" class="w-full h-full relative">
+                    <div class="slide absolute inset-0 fade block">
+                        <img src="Images/halamn utama.png" alt="Ibadah" class="w-full h-full object-cover opacity-60">
+                        <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+                            <h2 class="text-4xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg">Selamat Datang di GKII</h2>
+                            <p class="text-lg md:text-2xl text-yellow-300 font-medium drop-shadow-md">Jemaat Jembatan Dua</p>
+                        </div>
+                    </div>
+                    <div class="slide absolute inset-0 fade hidden">
+                        <img src="Images/halaman kedua.png" alt="Persekutuan" class="w-full h-full object-cover opacity-60">
+                        <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+                            <h2 class="text-4xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg">Bertumbuh dalam Kasih</h2>
+                            <p class="text-lg md:text-2xl text-yellow-300 font-medium drop-shadow-md">Melayani Sesama dengan Sepenuh Hati</p>
+                        </div>
+                    </div>
+                    <div class="slide absolute inset-0 fade hidden">
+                        <img src="Images/halaman ketiga.png" alt="Pujian" class="w-full h-full object-cover opacity-60">
+                        <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+                            <h2 class="text-4xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg">Mari Memuji Tuhan</h2>
+                            <p class="text-lg md:text-2xl text-yellow-300 font-medium drop-shadow-md">Bergabunglah dalam Ibadah Bersama Kami</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-3xl hover:text-yellow-400 z-10" onclick="changeSlide(-1)" aria-label="Sebelumnya">&#10094;</button>
+                <button class="absolute right-4 top-1/2 -translate-y-1/2 text-white text-3xl hover:text-yellow-400 z-10" onclick="changeSlide(1)" aria-label="Berikutnya">&#10095;</button>
+            </header>
+
+            <!-- Bar khusus Website Remaja -->
+            <section class="bg-gradient-to-r from-purple-700 via-fuchsia-600 to-pink-500 text-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-4">
+                    <div class="flex items-center gap-4 text-center md:text-left">
+                        <div class="hidden sm:flex w-12 h-12 rounded-full bg-white/20 items-center justify-center text-2xl"><i class="fa-solid fa-users-rays"></i></div>
+                        <div>
+                            <p class="text-xs font-bold uppercase tracking-widest text-pink-100">Khusus Remaja</p>
+                            <h3 class="text-lg md:text-xl font-bold leading-tight">Website Remaja GKII</h3>
+                            <p class="text-sm text-purple-100">Info kegiatan, acara, dan konten khusus untuk remaja GKII.</p>
+                        </div>
+                    </div>
+                    <a href="https://remajagkii.vercel.app/" target="_blank" rel="noopener" class="shrink-0 bg-white text-purple-700 font-bold px-6 py-2.5 rounded-full shadow-md hover:bg-pink-50 hover:shadow-lg transition">
+                        Kunjungi Website Remaja <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-sm"></i>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Ayat Harian -->
+            <section id="ayat" class="py-12 bg-yellow-50">
+                <div class="max-w-4xl mx-auto px-4 text-center">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-yellow-400 relative">
+                        <i class="fa-solid fa-quote-left text-4xl text-yellow-200 absolute top-4 left-6"></i>
+                        <h3 class="text-sm font-bold text-yellow-600 uppercase tracking-widest mb-4">Ayat Harian</h3>
+                        <p id="text-ayat" class="text-xl md:text-2xl text-gray-800 font-serif italic mb-6 relative z-10">"Sebab Aku ini mengetahui rancangan-rancangan apa yang ada pada-Ku mengenai kamu, demikianlah firman TUHAN, yaitu rancangan damai sejahtera dan bukan rancangan kecelakaan, untuk memberikan kepadamu hari depan yang penuh harapan."</p>
+                        <p id="text-kitab" class="font-bold text-gray-900">- Yeremia 29:11 -</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Warta Jemaat -->
+            <section id="warta" class="py-12 bg-white scroll-mt-20">
+                <div class="max-w-5xl mx-auto px-4">
+                    <div class="text-center mb-8">
+                        <h2 class="text-3xl font-bold text-gray-900">Warta Jemaat</h2>
+                        <div class="w-24 h-1 bg-yellow-400 mx-auto mt-4 rounded-full"></div>
+                    </div>
+                    <div class="bg-blue-50 p-6 md:p-8 rounded-2xl border border-blue-100 flex flex-col md:flex-row gap-6 items-center shadow-sm">
+                        <div id="warta-media-container" class="w-full md:w-1/2 hidden">
+                            <img id="img-warta" src="" alt="Warta" class="w-full rounded-xl shadow-md hidden object-cover max-h-[300px]">
+                            <video id="vid-warta" src="" controls class="w-full rounded-xl shadow-md hidden max-h-[300px]"></video>
+                            <div id="youtube-container" class="w-full aspect-video hidden">
+                                <iframe id="iframe-youtube" src="" class="w-full h-full rounded-xl shadow-md" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="w-full">
+                            <h3 id="text-warta-judul" class="text-2xl font-bold text-gray-900 mb-3">Tidak Ada Warta Terbaru</h3>
+                            <p id="text-warta-isi" class="text-gray-700 whitespace-pre-line leading-relaxed">Tunggu pembaruan warta berikutnya dari sekretariat.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== SEJARAH PERKEMBANGAN GKII ==================== -->
+            <section id="sejarah" class="py-16 bg-gradient-to-b from-yellow-50 to-white scroll-mt-20">
+                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12">
+                        <p class="text-sm font-bold text-yellow-600 uppercase tracking-widest mb-2">印尼基督教会证道堂</p>
+                        <h2 class="text-3xl font-bold text-gray-900">Sejarah Perkembangan GKII</h2>
+                        <div class="w-24 h-1 bg-yellow-400 mx-auto mt-4 rounded-full"></div>
+                    </div>
+
+                    <!-- Cerita Kami -->
+                    <div class="bg-white rounded-2xl shadow-lg border-t-4 border-yellow-400 p-6 md:p-10 mb-14">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4"><i class="fa-solid fa-book-open text-yellow-500 mr-2"></i>Cerita Kami</h3>
+                        <div class="space-y-4 text-gray-700 leading-relaxed">
+                            <p>Gereja Kristen Injili Indonesia (GKII) didirikan pada <strong>15 Juli 1967</strong> oleh Ibu Lantang Nelwan (ibunda dari TT. Jasmin Lantang). Beliau lahir di Songkou, Meixian, Guangdong, China. Bersama suaminya, Bapak Liao Ying, beliau semula adalah jemaat Gereja Santapan Rohani (Ling Liang Tang) dan memiliki hubungan yang erat dengan pendirinya, Pdt. Zhao Shiguang.</p>
+                            <p>Ibu Lantang Nelwan melihat banyak anak keturunan Tionghoa yang tidak mengecap dunia pendidikan dan tidak masuk ke sekolah-sekolah pemerintah. Beliau pun kembali terjun ke dunia pendidikan: mendirikan sekolah dan membantu anak-anak kembali bersekolah, sekaligus mendirikan gereja untuk mengabarkan Injil.</p>
+                            <p>Beliau mengajak Bapak Hu Yingjie (ayah dari TT. Tony Mulia) dan Bapak Chen Nanzeng untuk ikut mendirikan Yayasan Injili Indonesia. Sekolahnya bernama resmi <strong>Sekolah Kristen Yusuf (SKY)</strong>, sedangkan gerejanya bernama <strong>Gereja Kristen Injili Indonesia (GKII)</strong>. Setelah izin diperoleh, sekolah dimulai secara resmi pada 15 Juli 1967, dan pada hari yang sama gereja memulai Kebaktian Umum pertama. Bahasa pengantar sekolah adalah Bahasa Indonesia, sedangkan gereja mendapat izin menggunakan Bahasa Mandarin.</p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline -->
+                    <h3 class="text-center text-xl font-bold text-gray-900 mb-10"><i class="fa-solid fa-timeline text-yellow-500 mr-2"></i>Perjalanan Kami</h3>
+                    <div class="relative" id="timeline">
+                        <div class="tl-line"></div>
+                        <div id="timeline-items" class="space-y-10"></div>
+                    </div>
+
+                    <!-- Visi & Misi -->
+                    <div class="mt-16 bg-gray-900 text-gray-100 rounded-2xl p-6 md:p-10 shadow-xl">
+                        <h3 class="text-xl font-bold text-yellow-400 mb-5 text-center"><i class="fa-solid fa-bullseye mr-2"></i>Visi & Misi</h3>
+                        <ul class="space-y-4 leading-relaxed text-sm md:text-base">
+                            <li class="flex gap-3"><i class="fa-solid fa-cross text-yellow-400 mt-1"></i><span>GKII terpanggil untuk melaksanakan pemberitaan Injil dan pelayanan kasih berdasarkan anugerah Allah Tritunggal, supaya nama Allah dipermuliakan dan manusia berdosa yang percaya kepada Yesus Kristus menjadi pewaris keselamatan Allah.</span></li>
+                            <li class="flex gap-3"><i class="fa-solid fa-cross text-yellow-400 mt-1"></i><span>GKII mewujudkan panggilannya dengan mengajar, membimbing, dan membaptiskan jemaat menjadi orang-orang yang dewasa dalam iman, dapat bersaksi, dan melayani.</span></li>
+                            <li class="flex gap-3"><i class="fa-solid fa-cross text-yellow-400 mt-1"></i><span>GKII dapat mendirikan badan atau lembaga guna melaksanakan tugas gereja.</span></li>
+                            <li class="flex gap-3"><i class="fa-solid fa-cross text-yellow-400 mt-1"></i><span>GKII terpanggil untuk memelihara Bahasa Mandarin sebagai salah satu sarana komunikasi untuk pemberitaan Injil.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Jadwal Kebaktian & Komisi -->
+            <section id="jadwal" class="py-16 bg-white scroll-mt-20">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-bold text-gray-900">Jadwal Kebaktian & Komisi</h2>
+                        <div class="w-24 h-1 bg-yellow-400 mx-auto mt-4 rounded-full"></div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+                        <div class="bg-slate-50 border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow hover:border-yellow-400">
+                            <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mb-4 text-yellow-600 text-xl"><i class="fa-solid fa-church"></i></div>
+                            <h3 class="text-xl font-bold text-gray-900 border-b pb-2 mb-4">Kebaktian Umum</h3>
+                            <ul class="space-y-4 text-gray-700">
+                                <li class="flex flex-col"><span class="font-semibold text-yellow-600">Kebaktian Umum 1 (Mandarin Indonesia)</span><span class="flex items-center text-sm mt-1"><i class="fa-regular fa-clock w-5 text-gray-400"></i> 07:00 WIB</span></li>
+                                <li class="flex flex-col"><span class="font-semibold text-yellow-600">Kebaktian Umum 2</span><span class="flex items-center text-sm mt-1"><i class="fa-regular fa-clock w-5 text-gray-400"></i> 09:30 WIB</span></li>
+                            </ul>
+                            <div class="mt-4 pt-3 border-t text-sm text-gray-500"><i class="fa-solid fa-location-dot w-5 text-gray-400"></i> Lantai 3 Ruang Ibadah Utama</div>
+                        </div>
+
+                        <div class="bg-slate-50 border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow hover:border-yellow-400">
+                            <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mb-4 text-yellow-600 text-xl"><i class="fa-solid fa-child-reaching"></i></div>
+                            <h3 class="text-xl font-bold text-gray-900 border-b pb-2 mb-4">Sekolah Minggu</h3>
+                            <ul class="space-y-4 text-gray-700">
+                                <li class="flex flex-col"><span class="font-semibold text-yellow-600">Ibadah Anak</span><span class="flex items-center text-sm mt-1"><i class="fa-regular fa-clock w-5 text-gray-400"></i> 09:30 WIB</span></li>
+                            </ul>
+                            <div class="mt-4 pt-3 border-t text-sm text-gray-500"><i class="fa-solid fa-location-dot w-5 text-gray-400"></i> Sekolah Kristen Yusuf</div>
+                        </div>
+
+                        <div class="bg-slate-50 border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow hover:border-yellow-400">
+                            <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mb-4 text-yellow-600 text-xl"><i class="fa-solid fa-users"></i></div>
+                            <h3 class="text-xl font-bold text-gray-900 border-b pb-2 mb-4">Persekutuan Remaja</h3>
+                            <ul class="space-y-4 text-gray-700">
+                                <li class="flex flex-col"><span class="font-semibold text-yellow-600">Tunas Remaja (Turem)</span><span class="flex items-center text-sm mt-1"><i class="fa-regular fa-clock w-5 text-gray-400"></i> 08:30 WIB</span></li>
+                                <li class="flex flex-col"><span class="font-semibold text-yellow-600">Komisi Remaja (Korem)</span><span class="flex items-center text-sm mt-1"><i class="fa-regular fa-clock w-5 text-gray-400"></i> 10:00 WIB</span></li>
+                            </ul>
+                            <div class="mt-4 pt-3 border-t text-sm text-gray-500"><i class="fa-solid fa-location-dot w-5 text-gray-400"></i> Lantai 2 Ruang Persekutuan</div>
+                        </div>
+
+                        <div class="bg-slate-50 border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow hover:border-yellow-400">
+                            <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mb-4 text-yellow-600 text-xl"><i class="fa-solid fa-fire"></i></div>
+                            <h3 class="text-xl font-bold text-gray-900 border-b pb-2 mb-4">Komisi Pemuda</h3>
+                            <ul class="space-y-4 text-gray-700">
+                                <li class="flex flex-col"><span class="font-semibold text-yellow-600">Ibadah Pemuda</span><span class="flex items-center text-sm mt-1"><i class="fa-regular fa-clock w-5 text-gray-400"></i> 11:00 WIB</span></li>
+                            </ul>
+                            <div class="mt-4 pt-3 border-t text-sm text-gray-500"><i class="fa-solid fa-location-dot w-5 text-gray-400"></i> Lantai 3 Ruang Ibadah Utama</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-2xl p-6 md:p-8 border border-gray-200">
+                        <h3 class="text-xl font-bold text-gray-900 mb-6 text-center"><i class="fa-solid fa-people-group text-yellow-500 mr-2"></i>Jadwal Persekutuan Lainnya</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                                <h4 class="font-bold text-yellow-600 mb-2">Persekutuan Doa</h4>
+                                <p class="text-gray-700 text-sm"><i class="fa-regular fa-calendar mr-1"></i> Setiap Hari Rabu</p>
+                                <p class="text-gray-700 font-semibold"><i class="fa-regular fa-clock mr-1"></i> 19:00 WIB</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                                <h4 class="font-bold text-yellow-600 mb-2">Persekutuan Dewasa</h4>
+                                <p class="text-xs text-gray-500 italic mb-1">(Mandarin Indonesia)</p>
+                                <p class="text-gray-700 font-semibold"><i class="fa-regular fa-clock mr-1"></i> 18:30 WIB</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                                <h4 class="font-bold text-yellow-600 mb-2">Persekutuan Suami-Istri</h4>
+                                <p class="text-gray-700 text-sm"><i class="fa-regular fa-calendar mr-1"></i> Sabtu Minggu ke-4</p>
+                                <p class="text-gray-700 font-semibold"><i class="fa-regular fa-clock mr-1"></i> 18:00 WIB</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Persembahan & Perpuluhan -->
+            <section id="persembahan" class="py-16 bg-yellow-50 border-t border-yellow-200 scroll-mt-20">
+                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-10">
+                        <h2 class="text-3xl font-bold text-gray-900">Persembahan & Perpuluhan</h2>
+                        <div class="w-24 h-1 bg-yellow-400 mx-auto mt-4 rounded-full"></div>
+                        <p class="mt-4 text-gray-600">"Hendaklah masing-masing memberikan menurut kerelaan hatinya..." (2 Korintus 9:7)</p>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="w-full md:w-1/2 bg-gray-100 p-6 flex flex-col items-center justify-center border-r border-gray-200">
+                                <h3 class="text-xl font-bold text-gray-800 mb-4">Scan QRIS</h3>
+                                <img src="Images/qris_GKII.jpeg" alt="QRIS GKII Jembatan Dua" class="max-w-[250px] w-full rounded-lg shadow-md border-4 border-white">
+                            </div>
+                            <div class="w-full md:w-1/2 p-8">
+                                <h3 class="text-xl font-bold text-gray-800 mb-4 border-b pb-2">Transfer Rekening BCA</h3>
+                                <div class="mb-6">
+                                    <p class="text-3xl font-mono font-bold text-yellow-600 tracking-wider">074-300-5411</p>
+                                    <p class="text-gray-600 font-semibold mt-1">a.n. Gereja Kristen Injili Indonesia</p>
+                                </div>
+                                <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                                    <h4 class="font-bold text-gray-900 mb-3 text-sm uppercase"><i class="fa-solid fa-circle-info text-yellow-500 mr-2"></i>Kode Unik Nominal</h4>
+                                    <p class="text-xs text-gray-600 mb-3">Mohon tambahkan kode unik berikut di akhir nominal persembahan Anda (Contoh: Rp 100.001 untuk Diakonia):</p>
+                                    <ul class="text-sm space-y-2 text-gray-800">
+                                        <li class="flex justify-between border-b border-yellow-200 pb-1"><span>Diakonia</span> <span class="font-bold text-yellow-700">+1</span></li>
+                                        <li class="flex justify-between border-b border-yellow-200 pb-1"><span>Misi</span> <span class="font-bold text-yellow-700">+2</span></li>
+                                        <li class="flex justify-between border-b border-yellow-200 pb-1"><span>STTD</span> <span class="font-bold text-yellow-700">+3</span></li>
+                                        <li class="flex justify-between border-b border-yellow-200 pb-1"><span>Pembangunan</span> <span class="font-bold text-yellow-700">+7</span></li>
+                                        <li class="flex justify-between"><span>Perpuluhan</span> <span class="font-bold text-yellow-700">+10</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ==================== HALAMAN KALENDER EVENT ==================== -->
+        <div id="page-event" class="hidden py-10 max-w-7xl mx-auto px-4 w-full">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-gray-900"><i class="fa-regular fa-calendar-days text-yellow-500 mr-3"></i>Kalender Event GKII</h2>
+                <p class="mt-4 text-gray-600">Jadwal kegiatan dan acara gereja yang akan datang.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Kalender bulanan -->
+                <div class="lg:col-span-2 bg-white rounded-xl shadow-lg border border-gray-200 p-4 md:p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <button onclick="gantiBulan(-1)" class="w-10 h-10 rounded-full hover:bg-yellow-50 text-gray-600" aria-label="Bulan sebelumnya"><i class="fa-solid fa-chevron-left"></i></button>
+                        <div class="text-center">
+                            <h3 id="cal-title" class="text-lg md:text-xl font-bold text-gray-900"></h3>
+                            <button onclick="keHariIni()" class="text-xs text-yellow-600 hover:underline font-semibold">Hari ini</button>
+                        </div>
+                        <button onclick="gantiBulan(1)" class="w-10 h-10 rounded-full hover:bg-yellow-50 text-gray-600" aria-label="Bulan berikutnya"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                    <div class="grid grid-cols-7 text-center text-xs font-bold text-gray-500 mb-2">
+                        <div class="text-red-500">Min</div><div>Sen</div><div>Sel</div><div>Rab</div><div>Kam</div><div>Jum</div><div>Sab</div>
+                    </div>
+                    <div id="cal-grid" class="grid grid-cols-7 gap-1"></div>
+                </div>
+
+                <!-- Detail / acara mendatang -->
+                <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-4 md:p-6">
+                    <h3 id="cal-detail-title" class="text-lg font-bold text-gray-900 mb-4 pb-2 border-b"></h3>
+                    <div id="cal-detail" class="space-y-4"></div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-10 border-t-4 border-yellow-500 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center md:text-left">
+                    <h2 class="text-2xl font-bold text-white mb-2"><span class="text-yellow-400">GKII</span> Jembatan Dua</h2>
+                    <p class="text-sm mb-4">Gereja Kristen Injili Indonesia</p>
+                    <a href="https://maps.app.goo.gl/rQRdwkJdEazDFXut7" target="_blank" class="text-sm text-gray-400 hover:text-yellow-400 flex items-start gap-2 justify-center md:justify-start">
+                        <i class="fa-solid fa-map-location-dot mt-1 text-yellow-500"></i>
+                        <span>Blok K1 No, Jl. Arwana Raya<br>Jl. Jembatan Dua Raya No.2, RT.13/RW.2,<br>Pejagalan, Penjaringan, Jakarta Utara 14450</span>
+                    </a>
+                </div>
+
+                <div class="text-center md:text-left">
+                    <h3 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Hubungi Kami</h3>
+                    <ul class="space-y-3">
+                        <li><a href="tel:0216691034" class="text-sm text-gray-400 hover:text-yellow-400 transition flex items-center justify-center md:justify-start gap-2"><i class="fa-solid fa-phone text-yellow-500"></i> 021-6691034</a></li>
+                        <li><a href="mailto:sekretarisgkii@gmail.com" class="text-sm text-gray-400 hover:text-yellow-400 transition flex items-center justify-center md:justify-start gap-2"><i class="fa-solid fa-envelope text-yellow-500"></i> sekretarisgkii@gmail.com</a></li>
+                    </ul>
+                </div>
+
+                <div class="text-center md:text-left flex flex-col items-center md:items-start">
+                    <h3 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Media Sosial</h3>
+                    <div class="flex space-x-4">
+                        <div class="relative inline-block" id="ig-wrap">
+                            <button id="ig-btn" onclick="toggleIg(event)" aria-expanded="false" aria-haspopup="true" title="Instagram" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-yellow-500 hover:text-white transition cursor-pointer"><i class="fa-brands fa-instagram"></i></button>
+                            <div id="ig-menu" class="hidden absolute bottom-full mb-2 left-0 flex-col bg-white text-gray-800 text-sm rounded-lg shadow-xl overflow-hidden w-48 border border-gray-100 z-50">
+                                <a href="https://www.instagram.com/gkii/" target="_blank" rel="noopener" class="px-4 py-3 hover:bg-yellow-50 font-semibold border-b border-gray-50 flex items-center gap-2"><i class="fa-brands fa-instagram text-yellow-600"></i> GKII Official</a>
+                                <a href="https://www.instagram.com/remajagkii/" target="_blank" rel="noopener" class="px-4 py-3 hover:bg-yellow-50 font-semibold border-b border-gray-50 flex items-center gap-2"><i class="fa-brands fa-instagram text-yellow-600"></i> Remaja GKII</a>
+                                <a href="https://www.instagram.com/gkii_youth_ministry/" target="_blank" rel="noopener" class="px-4 py-3 hover:bg-yellow-50 font-semibold flex items-center gap-2"><i class="fa-brands fa-instagram text-yellow-600"></i> Pemuda GKII</a>
+                            </div>
+                        </div>
+                        <a href="https://www.youtube.com/@gerejakristeninjiliindones8305" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-red-600 hover:text-white transition" title="YouTube GKII"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-3">*Klik logo Instagram untuk memilih akun.</p>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-sm text-gray-600 border-t border-gray-800 pt-6">
+                &copy; 2026 GKII Jembatan Dua. All rights reserved.
+                <button onclick="openAdmin()" class="ml-3 text-gray-700 hover:text-yellow-500 transition" title="Admin"><i class="fa-solid fa-lock"></i></button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== MODAL ADMIN ==================== -->
+    <div id="admin-modal" class="hidden fixed inset-0 z-[100] bg-black/60 overflow-y-auto p-4" onclick="if(event.target===this) closeAdmin()">
+        <div class="max-w-2xl mx-auto bg-white rounded-2xl shadow-2xl my-8">
+
+            <!-- Login -->
+            <div id="admin-login" class="p-8">
+                <div class="flex justify-between items-start mb-6">
+                    <h2 class="text-xl font-bold text-gray-900"><i class="fa-solid fa-lock text-yellow-500 mr-2"></i>Login Admin</h2>
+                    <button onclick="closeAdmin()" class="text-gray-400 hover:text-gray-700" aria-label="Tutup"><i class="fa-solid fa-xmark text-xl"></i></button>
+                </div>
+                <label class="block text-sm font-semibold text-gray-700 mb-1">Kata Sandi</label>
+                <input type="password" id="admin-pass" class="w-full px-4 py-2 border rounded-lg mb-2" placeholder="Masukkan kata sandi" onkeydown="if(event.key==='Enter') loginAdmin()">
+                <p id="login-error" class="text-red-600 text-sm hidden mb-2">Kata sandi salah.</p>
+                <button onclick="loginAdmin()" class="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 rounded-lg shadow-md transition mt-2">Masuk</button>
+            </div>
+
+            <!-- Panel -->
+            <div id="admin-panel" class="hidden p-8">
+                <div class="flex justify-between items-start mb-6 border-b pb-4">
+                    <h2 class="text-xl font-bold text-gray-900"><i class="fa-solid fa-gear text-yellow-500 mr-2"></i>Panel Admin GKII</h2>
+                    <div class="flex items-center gap-4">
+                        <button onclick="logoutAdmin()" class="text-sm text-gray-500 hover:text-red-600"><i class="fa-solid fa-right-from-bracket mr-1"></i>Keluar</button>
+                        <button onclick="closeAdmin()" class="text-gray-400 hover:text-gray-700" aria-label="Tutup"><i class="fa-solid fa-xmark text-xl"></i></button>
+                    </div>
+                </div>
+
+                <div class="flex gap-2 mb-6 border-b">
+                    <button id="tabbtn-warta" onclick="pilihTab('warta')" class="px-4 py-2 font-semibold text-sm border-b-2 -mb-px border-yellow-500 text-yellow-700"><i class="fa-solid fa-bullhorn mr-1"></i>Warta & Ayat</button>
+                    <button id="tabbtn-event" onclick="pilihTab('event')" class="px-4 py-2 font-semibold text-sm border-b-2 -mb-px border-transparent text-gray-500"><i class="fa-regular fa-calendar-days mr-1"></i>Kalender Event</button>
+                </div>
+
+                <div id="tab-warta">
+                    <div class="mb-8">
+                        <h3 class="text-lg font-bold text-gray-800 mb-3"><i class="fa-solid fa-book-bible text-yellow-600 mr-2"></i>Ayat Harian</h3>
+                        <textarea id="input-ayat" rows="3" class="w-full px-4 py-2 border rounded-lg mb-3" placeholder="Isi Ayat..."></textarea>
+                        <input type="text" id="input-kitab" class="w-full px-4 py-2 border rounded-lg" placeholder="Kitab & Pasal (Contoh: Yeremia 29:11)">
+                    </div>
+
+                    <div class="mb-8">
+                        <h3 class="text-lg font-bold text-gray-800 mb-3"><i class="fa-solid fa-bullhorn text-blue-600 mr-2"></i>Warta Jemaat / Pengumuman</h3>
+                        <input type="text" id="input-warta-judul" class="w-full px-4 py-2 border rounded-lg mb-3" placeholder="Judul Warta">
+                        <textarea id="input-warta-isi" rows="4" class="w-full px-4 py-2 border rounded-lg mb-3" placeholder="Isi Warta..."></textarea>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 bg-slate-50 p-4 rounded-xl border">
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-1"><i class="fa-solid fa-upload mr-1"></i> Upload Gambar</label>
+                                <input type="file" id="input-file-media" accept="image/*" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-yellow-50 file:text-yellow-700 hover:file:bg-yellow-100">
+                                <p class="text-xs text-gray-500 mt-1">Gambar dikecilkan otomatis. Untuk video, gunakan link YouTube.</p>
+                                <p id="media-status" class="text-xs mt-1 hidden"></p>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-1"><i class="fa-brands fa-youtube mr-1 text-red-600"></i> Atau Link YouTube</label>
+                                <input type="text" id="input-youtube-link" class="w-full px-4 py-2 border rounded-lg text-sm" placeholder="https://youtu.be/xxxxxx">
+                            </div>
+                        </div>
+                        <button type="button" onclick="hapusMedia()" class="mt-3 text-sm text-red-600 hover:underline"><i class="fa-solid fa-trash mr-1"></i>Hapus media warta</button>
+                    </div>
+
+                    <button onclick="simpanData()" class="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 rounded-lg shadow-md transition">
+                        <i class="fa-solid fa-floppy-disk mr-2"></i> Simpan ke Web Jemaat
+                    </button>
+                    <p id="notif" class="font-bold text-center mt-4 hidden"></p>
+                </div>
+
+                <!-- Tab Kalender Event -->
+                <div id="tab-event" class="hidden">
+                    <h3 class="text-lg font-bold text-gray-800 mb-3"><i class="fa-regular fa-calendar-plus text-yellow-600 mr-2"></i><span id="ev-form-title">Tambah Event</span></h3>
+                    <input type="hidden" id="ev-id">
+                    <input type="text" id="ev-judul" class="w-full px-4 py-2 border rounded-lg mb-3" placeholder="Nama acara (contoh: Ibadah Natal)">
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-600 mb-1">Tanggal mulai</label>
+                            <input type="date" id="ev-tanggal" class="w-full px-4 py-2 border rounded-lg">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-600 mb-1">Tanggal selesai (opsional)</label>
+                            <input type="date" id="ev-selesai" class="w-full px-4 py-2 border rounded-lg">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-600 mb-1">Jam mulai (opsional)</label>
+                            <input type="time" id="ev-jam" class="w-full px-4 py-2 border rounded-lg">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-600 mb-1">Jam selesai (opsional)</label>
+                            <input type="time" id="ev-jam-selesai" class="w-full px-4 py-2 border rounded-lg">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="block text-xs font-bold text-gray-600 mb-1">Lokasi (opsional)</label>
+                        <input type="text" id="ev-lokasi" class="w-full px-4 py-2 border rounded-lg" placeholder="Contoh: Lantai 3 Ruang Ibadah Utama">
+                    </div>
+
+                    <textarea id="ev-ket" rows="3" class="w-full px-4 py-2 border rounded-lg mb-3" placeholder="Keterangan (opsional)"></textarea>
+
+                    <!-- Poster & Video MP4 Trailer Event -->
+                    <div class="bg-slate-50 p-4 rounded-xl border mb-4 space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 mb-1"><i class="fa-regular fa-image text-yellow-600 mr-1"></i>Poster Event (Gambar, opsional)</label>
+                            <input type="file" id="ev-poster-file" accept="image/*" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-yellow-50 file:text-yellow-700 hover:file:bg-yellow-100">
+                            <p id="ev-poster-status" class="text-xs mt-1 hidden"></p>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 mb-1"><i class="fa-solid fa-film text-purple-600 mr-1"></i>Video Trailer Event (.mp4, opsional)</label>
+                            <input type="file" id="ev-video-file" accept="video/mp4" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-purple-50 file:text-purple-700 hover:file:bg-purple-100">
+                            <p class="text-xs text-gray-500 mt-1">Format .mp4 ringan (disarankan &le; 900 KB per file agar muat di dokumen Firestore).</p>
+                            <p id="ev-video-status" class="text-xs mt-1 hidden"></p>
+                        </div>
+
+                        <button type="button" onclick="hapusMediaEvent()" class="text-xs text-red-600 hover:underline"><i class="fa-solid fa-trash mr-1"></i>Hapus poster &amp; video trailer event ini</button>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <button onclick="simpanEvent()" class="flex-1 bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 rounded-lg shadow-md transition"><i class="fa-solid fa-floppy-disk mr-2"></i><span id="ev-btn-label">Simpan Event</span></button>
+                        <button onclick="resetFormEvent()" class="px-5 py-3 rounded-lg border text-gray-600 hover:bg-gray-50 font-semibold">Batal</button>
+                    </div>
+                    <p id="notif-event" class="font-bold text-center mt-4 hidden"></p>
+
+                    <h4 class="text-base font-bold text-gray-800 mt-8 mb-3 pt-4 border-t">Daftar Event</h4>
+                    <div id="ev-list" class="space-y-2"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* ===== PENGATURAN ===== */
+        const SEJARAH = [
+            { tahun: "1967", judul: "Ibadah Pertama", icon: "fa-church",
+              isi: "Pada 15 Juli 1967, bersamaan dengan dimulainya Sekolah Kristen Yusuf, GKII mengadakan Kebaktian Umum pertama dengan Bahasa Mandarin sebagai bahasa pengantar." },
+            { tahun: "1969", judul: "Baptisan Pertama", icon: "fa-droplet",
+              isi: "Dua tahun setelah berdiri, GKII melaksanakan baptisan pertama bagi jemaat yang percaya kepada Yesus Kristus." },
+            { tahun: "1998", judul: "Pendirian POS PI Taman Surya", icon: "fa-seedling",
+              isi: "GKII memperluas pelayanan Injil dengan mendirikan Pos Pekabaran Injil (POS PI) di Taman Surya." },
+            { tahun: "2002", judul: "Pembelian Gedung Pastori", icon: "fa-house",
+              isi: "GKII membeli gedung pastori, menjadi salah satu langkah penting dalam perkembangan pelayanan gereja." },
+            { tahun: "2010", judul: "Peletakan Batu Pertama Gedung Gereja", icon: "fa-trowel-bricks",
+              isi: "Pembangunan gedung gereja dimulai dengan peletakan batu pertama." },
+            { tahun: "2015", judul: "Peresmian Gedung Gereja Baru", icon: "fa-building-columns",
+              isi: "Gedung gereja baru diresmikan dan menjadi rumah ibadah jemaat GKII Jembatan Dua hingga kini." }
+        ];
+
+        /* ===== NAVIGASI ===== */
+        function navigate(pageId) {
+            document.getElementById('page-home').classList.add('hidden');
+            document.getElementById('page-event').classList.add('hidden');
+            document.getElementById('page-' + pageId).classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        function navigateAndScroll(sectionId) {
+            navigate('home');
+            setTimeout(() => {
+                const el = document.getElementById(sectionId);
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        /* ===== SLIDER ===== */
+        let slideIndex = 1, slideInterval;
+        function showSlides(n) {
+            const slides = document.getElementsByClassName("slide");
+            if (!slides.length) return;
+            if (n > slides.length) slideIndex = 1;
+            if (n < 1) slideIndex = slides.length;
+            for (const s of slides) { s.classList.add("hidden"); s.classList.remove("block"); }
+            slides[slideIndex - 1].classList.remove("hidden");
+            slides[slideIndex - 1].classList.add("block");
+        }
+        function changeSlide(n) { showSlides(slideIndex += n); resetInterval(); }
+        function resetInterval() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(() => changeSlide(1), 5000);
+        }
+
+        /* ===== TIMELINE SEJARAH ===== */
+        function renderTimeline() {
+            const wrap = document.getElementById('timeline-items');
+            wrap.innerHTML = SEJARAH.map((s, i) => {
+                const kiri = i % 2 === 0;
+                return `
+                <div class="tl-item relative pl-14 md:pl-0 md:grid md:grid-cols-2 md:gap-12 items-center">
+                    <div class="absolute left-0 md:left-1/2 md:-translate-x-1/2 top-2 w-10 h-10 rounded-full bg-yellow-500 text-white flex items-center justify-center shadow-lg ring-4 ring-white z-10">
+                        <i class="fa-solid ${s.icon}"></i>
+                    </div>
+                    <div class="${kiri ? 'md:text-right md:col-start-1' : 'md:col-start-2'}">
+                        <div class="bg-white p-5 rounded-xl shadow-md border border-gray-100 hover:border-yellow-400 hover:shadow-lg transition">
+                            <span class="inline-block bg-yellow-100 text-yellow-700 font-bold text-sm px-3 py-1 rounded-full mb-2">${s.tahun}</span>
+                            <h4 class="text-lg font-bold text-gray-900 mb-1">${s.judul}</h4>
+                            <p class="text-gray-600 text-sm leading-relaxed">${s.isi}</p>
+                        </div>
+                    </div>
+                </div>`;
+            }).join('');
+
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
+            }, { threshold: 0.2 });
+            document.querySelectorAll('.tl-item').forEach(el => io.observe(el));
+        }
+
+        /* ===== MENU INSTAGRAM (tetap terbuka sampai diklik di luar) ===== */
+        function toggleIg(e) {
+            e.stopPropagation();
+            const menu = document.getElementById('ig-menu');
+            const open = menu.classList.contains('hidden');
+            menu.classList.toggle('hidden', !open);
+            menu.classList.toggle('flex', open);
+            document.getElementById('ig-btn').setAttribute('aria-expanded', open ? 'true' : 'false');
+        }
+        function closeIg() {
+            const menu = document.getElementById('ig-menu');
+            menu.classList.add('hidden'); menu.classList.remove('flex');
+            document.getElementById('ig-btn').setAttribute('aria-expanded', 'false');
+        }
+        document.addEventListener('click', e => {
+            if (!document.getElementById('ig-wrap').contains(e.target)) closeIg();
+        });
+
+        /* ===== TAMPILKAN DATA (Ayat & Warta) - data berasal dari Firebase ===== */
+        window.siteData = {};
+        window.isAdmin = false;
+        window.adminState = { media: '', dihapus: false };
+        window.eventMediaState = { poster: '', video: '' };
+
+        const DEFAULTS = {
+            ayat: document.getElementById('text-ayat').innerText,
+            kitab: document.getElementById('text-kitab').innerText,
+            judul: document.getElementById('text-warta-judul').innerText,
+            isi: document.getElementById('text-warta-isi').innerText
+        };
+
+        function youtubeEmbedUrl(url) {
+            url = (url || '').trim();
+            if (!url) return '';
+            const m = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/|live\/))([A-Za-z0-9_-]{11})/);
+            return m ? 'https://www.youtube.com/embed/' + m[1] : '';
+        }
+
+        function updateTampilan() {
+            const d = window.siteData || {};
+            document.getElementById('text-ayat').innerText = d.ayat ? `"${d.ayat}"` : DEFAULTS.ayat;
+            document.getElementById('text-kitab').innerText = d.kitab ? `- ${d.kitab} -` : DEFAULTS.kitab;
+            document.getElementById('text-warta-judul').innerText = d.wartaJudul || DEFAULTS.judul;
+            document.getElementById('text-warta-isi').innerText = d.wartaIsi || DEFAULTS.isi;
+
+            const box = document.getElementById('warta-media-container');
+            const img = document.getElementById('img-warta');
+            const vid = document.getElementById('vid-warta');
+            const ytBox = document.getElementById('youtube-container');
+            const frame = document.getElementById('iframe-youtube');
+
+            [box, img, vid, ytBox].forEach(el => el.classList.add('hidden'));
+
+            const embed = youtubeEmbedUrl(d.youtube);
+            if (embed) {
+                box.classList.remove('hidden'); ytBox.classList.remove('hidden');
+                if (frame.src !== embed) frame.src = embed;
+            } else {
+                frame.src = '';
+                if (d.media) {
+                    box.classList.remove('hidden');
+                    img.src = d.media; img.classList.remove('hidden');
+                }
+            }
+        }
+
+        /* ===== ADMIN (tampilan; login & simpan ada di modul Firebase di bawah) ===== */
+        function openAdmin() {
+            document.getElementById('admin-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            refreshAdminView();
+        }
+        function closeAdmin() {
+            document.getElementById('admin-modal').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+        function refreshAdminView() {
+            if (window.isAdmin) showPanel(); else showLogin();
+        }
+        function showLogin() {
+            document.getElementById('admin-login').classList.remove('hidden');
+            document.getElementById('admin-panel').classList.add('hidden');
+            document.getElementById('admin-pass').value = '';
+            document.getElementById('login-error').classList.add('hidden');
+        }
+        function showPanel() {
+            const d = window.siteData || {};
+            document.getElementById('admin-login').classList.add('hidden');
+            document.getElementById('admin-panel').classList.remove('hidden');
+            document.getElementById('input-ayat').value = d.ayat || '';
+            document.getElementById('input-kitab').value = d.kitab || '';
+            document.getElementById('input-warta-judul').value = d.wartaJudul || '';
+            document.getElementById('input-warta-isi').value = d.wartaIsi || '';
+            document.getElementById('input-youtube-link').value = d.youtube || '';
+            document.getElementById('input-file-media').value = '';
+            window.adminState = { media: d.media || '', dihapus: false };
+            pilihTab('warta'); renderAdminEvents(); resetFormEvent();
+            setMediaStatus('', '');
+        }
+
+        function setMediaStatus(msg, type) {
+            const el = document.getElementById('media-status');
+            if (!msg) { el.classList.add('hidden'); return; }
+            el.textContent = msg;
+            el.className = 'text-xs mt-1 ' + (type === 'err' ? 'text-red-600' : 'text-green-600');
+        }
+        function setEventMediaStatus(id, msg, type) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            if (!msg) { el.classList.add('hidden'); return; }
+            el.textContent = msg;
+            el.className = 'text-xs mt-1 ' + (type === 'err' ? 'text-red-600' : 'text-green-600');
+        }
+
+        // Kecilkan gambar (maks ~500 KB) agar muat di dokumen Firestore
+        function kompresGambar(file, maxBytes = 500000) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onerror = reject;
+                reader.onload = e => {
+                    const img = new Image();
+                    img.onerror = reject;
+                    img.onload = () => {
+                        const scale = Math.min(1, 900 / img.width);
+                        const c = document.createElement('canvas');
+                        c.width = Math.round(img.width * scale);
+                        c.height = Math.round(img.height * scale);
+                        c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+                        let q = 0.78, out = c.toDataURL('image/jpeg', q);
+                        while (out.length > maxBytes && q > 0.3) { q -= 0.1; out = c.toDataURL('image/jpeg', q); }
+                        resolve(out);
+                    };
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function bacaFileDataUrl(file) {
+            return new Promise((resolve, reject) => {
+                const r = new FileReader();
+                r.onload = ev => resolve(ev.target.result);
+                r.onerror = reject;
+                r.readAsDataURL(file);
+            });
+        }
+
+        document.getElementById('input-file-media').addEventListener('change', async function (e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            if (!file.type.startsWith('image/')) { setMediaStatus('Hanya file gambar yang didukung.', 'err'); e.target.value = ''; return; }
+            try {
+                window.adminState.media = await kompresGambar(file, 700000);
+                window.adminState.dihapus = false;
+                setMediaStatus('Gambar siap disimpan.', 'ok');
+            } catch (err) {
+                setMediaStatus('Gagal membaca gambar.', 'err');
+            }
+        });
+
+        document.getElementById('ev-poster-file').addEventListener('change', async function (e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            if (!file.type.startsWith('image/')) {
+                setEventMediaStatus('ev-poster-status', 'Hanya file gambar yang didukung untuk poster.', 'err');
+                e.target.value = '';
+                return;
+            }
+            try {
+                window.eventMediaState.poster = await kompresGambar(file, 450000);
+                setEventMediaStatus('ev-poster-status', 'Poster siap disimpan.', 'ok');
+            } catch (err) {
+                setEventMediaStatus('ev-poster-status', 'Gagal membaca poster.', 'err');
+            }
+        });
+
+        document.getElementById('ev-video-file').addEventListener('change', async function (e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            const isMp4 = file.type === 'video/mp4' || file.name.toLowerCase().endsWith('.mp4');
+            if (!isMp4) {
+                setEventMediaStatus('ev-video-status', 'Hanya file video format .mp4 yang didukung.', 'err');
+                e.target.value = '';
+                return;
+            }
+            // Base64 menambah ukuran ~33%; batasi file mentah ~650 KB agar dokumen Firestore tidak penuh
+            if (file.size > 650 * 1024) {
+                setEventMediaStatus('ev-video-status', 'Ukuran file MP4 melebihi batas aman (maks. 650 KB untuk Firestore). Kompres/potong trailer terlebih dahulu.', 'err');
+                e.target.value = '';
+                return;
+            }
+            try {
+                window.eventMediaState.video = await bacaFileDataUrl(file);
+                setEventMediaStatus('ev-video-status', 'Video trailer MP4 siap disimpan.', 'ok');
+            } catch (err) {
+                setEventMediaStatus('ev-video-status', 'Gagal membaca file video MP4.', 'err');
+            }
+        });
+
+        function hapusMediaEvent() {
+            window.eventMediaState.poster = '';
+            window.eventMediaState.video = '';
+            document.getElementById('ev-poster-file').value = '';
+            document.getElementById('ev-video-file').value = '';
+            setEventMediaStatus('ev-poster-status', 'Poster akan dihapus saat event disimpan.', 'ok');
+            setEventMediaStatus('ev-video-status', 'Video trailer akan dihapus saat event disimpan.', 'ok');
+        }
+
+        function hapusMedia() {
+            window.adminState.media = '';
+            window.adminState.dihapus = true;
+            document.getElementById('input-file-media').value = '';
+            document.getElementById('input-youtube-link').value = '';
+            setMediaStatus('Media akan dihapus saat Anda menekan Simpan.', 'ok');
+        }
+
+        function tampilNotif(pesan, ok) {
+            const n = document.getElementById('notif');
+            n.innerHTML = (ok ? '<i class="fa-solid fa-check-circle mr-1"></i> ' : '<i class="fa-solid fa-triangle-exclamation mr-1"></i> ') + pesan;
+            n.className = 'font-bold text-center mt-4 ' + (ok ? 'text-green-600' : 'text-red-600');
+            setTimeout(() => n.classList.add('hidden'), 5000);
+        }
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') { closeAdmin(); closeIg(); }
+        });
+
+        /* ===== KALENDER EVENT (data dari Firebase, diatur lewat panel admin) ===== */
+        window.eventsData = [];
+        const BULAN = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+        let calYear = new Date().getFullYear(), calMonth = new Date().getMonth(), calSelected = null;
+
+        function pad(n) { return String(n).padStart(2, '0'); }
+        function ymd(y, m, d) { return y + '-' + pad(m + 1) + '-' + pad(d); }
+        function todayStr() { const t = new Date(); return ymd(t.getFullYear(), t.getMonth(), t.getDate()); }
+        function esc(s) {
+            return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+        }
+        function formatTanggal(ds) {
+            const p = ds.split('-').map(Number);
+            return p[2] + ' ' + BULAN[p[1] - 1] + ' ' + p[0];
+        }
+        function rentangTanggal(e) {
+            return e.selesai && e.selesai !== e.tanggal ? formatTanggal(e.tanggal) + ' – ' + formatTanggal(e.selesai) : formatTanggal(e.tanggal);
+        }
+        function formatJam(e) {
+            if (e.jam && e.jamSelesai) return `${e.jam} – ${e.jamSelesai} WIB`;
+            if (e.jam) return `Mulai ${e.jam} WIB`;
+            if (e.jamSelesai) return `Sampai ${e.jamSelesai} WIB`;
+            return '';
+        }
+        function eventsOn(ds) {
+            return window.eventsData.filter(e => e.tanggal <= ds && ds <= (e.selesai || e.tanggal));
+        }
+        function eventCard(e, showDate) {
+            const jamText = formatJam(e);
+            const posterHtml = e.poster
+                ? `<img src="${e.poster}" alt="Poster ${esc(e.judul)}" class="w-full rounded-lg mt-2 mb-2 max-h-64 object-cover border border-yellow-100">`
+                : '';
+            const videoHtml = e.video
+                ? `<div class="mt-2"><p class="text-xs font-semibold text-purple-700 mb-1"><i class="fa-solid fa-film mr-1"></i>Trailer Event</p><video src="${e.video}" controls preload="metadata" class="w-full rounded-lg max-h-60 bg-black"></video></div>`
+                : '';
+
+            return `<div class="p-3.5 rounded-lg bg-yellow-50 border border-yellow-200">
+                <p class="font-bold text-gray-900">${esc(e.judul)}</p>
+                ${showDate ? `<p class="text-xs text-yellow-700 font-semibold mt-1"><i class="fa-regular fa-calendar mr-1"></i>${esc(rentangTanggal(e))}</p>` : ''}
+                ${jamText ? `<p class="text-xs text-gray-600 mt-1"><i class="fa-regular fa-clock mr-1"></i>${esc(jamText)}</p>` : ''}
+                ${e.lokasi ? `<p class="text-xs text-gray-600 mt-1"><i class="fa-solid fa-location-dot mr-1"></i>${esc(e.lokasi)}</p>` : ''}
+                ${e.ket ? `<p class="text-sm text-gray-700 mt-2 whitespace-pre-line">${esc(e.ket)}</p>` : ''}
+                ${posterHtml}
+                ${videoHtml}
+            </div>`;
+        }
+
+        function renderKalender() {
+            const title = document.getElementById('cal-title');
+            if (!title) return;
+            title.textContent = BULAN[calMonth] + ' ' + calYear;
+
+            const first = new Date(calYear, calMonth, 1).getDay();
+            const days = new Date(calYear, calMonth + 1, 0).getDate();
+            const today = todayStr();
+            let html = '';
+            for (let i = 0; i < first; i++) html += '<div></div>';
+            for (let d = 1; d <= days; d++) {
+                const ds = ymd(calYear, calMonth, d);
+                const evs = eventsOn(ds);
+                const isSel = ds === calSelected, isToday = ds === today;
+                const cls = 'relative h-12 md:h-16 rounded-lg border text-sm font-semibold flex flex-col items-center justify-center transition ' +
+                    (isSel ? 'bg-yellow-400 text-white border-yellow-500' : isToday ? 'border-yellow-500 text-yellow-700 bg-yellow-50' : 'border-gray-100 hover:bg-yellow-50 text-gray-700');
+                const dots = evs.slice(0, 3).map(() => `<span class="w-1.5 h-1.5 rounded-full ${isSel ? 'bg-white' : 'bg-yellow-500'}"></span>`).join('');
+                html += `<button onclick="pilihHari('${ds}')" class="${cls}"><span>${d}</span>${evs.length ? `<span class="flex gap-0.5 mt-1">${dots}</span>` : ''}</button>`;
+            }
+            document.getElementById('cal-grid').innerHTML = html;
+
+            const dt = document.getElementById('cal-detail-title');
+            const dc = document.getElementById('cal-detail');
+            if (calSelected) {
+                dt.textContent = 'Acara ' + formatTanggal(calSelected);
+                const evs = eventsOn(calSelected);
+                dc.innerHTML = evs.length ? evs.map(e => eventCard(e, false)).join('') : '<p class="text-sm text-gray-500">Tidak ada acara pada tanggal ini.</p>';
+            } else {
+                dt.textContent = 'Acara Mendatang';
+                const up = window.eventsData.filter(e => (e.selesai || e.tanggal) >= today)
+                    .sort((a, b) => (a.tanggal + (a.jam || '')).localeCompare(b.tanggal + (b.jam || ''))).slice(0, 8);
+                dc.innerHTML = up.length ? up.map(e => eventCard(e, true)).join('') : '<p class="text-sm text-gray-500">Belum ada acara yang dijadwalkan.</p>';
+            }
+            renderAdminEvents();
+        }
+        function gantiBulan(n) {
+            calMonth += n;
+            if (calMonth < 0) { calMonth = 11; calYear--; }
+            if (calMonth > 11) { calMonth = 0; calYear++; }
+            calSelected = null;
+            renderKalender();
+        }
+        function keHariIni() {
+            const t = new Date();
+            calYear = t.getFullYear(); calMonth = t.getMonth(); calSelected = null;
+            renderKalender();
+        }
+        function pilihHari(ds) {
+            calSelected = (calSelected === ds) ? null : ds;
+            renderKalender();
+        }
+
+        /* ===== ADMIN: tab & daftar event ===== */
+        function pilihTab(t) {
+            ['warta', 'event'].forEach(n => {
+                document.getElementById('tab-' + n).classList.toggle('hidden', n !== t);
+                document.getElementById('tabbtn-' + n).className = 'px-4 py-2 font-semibold text-sm border-b-2 -mb-px ' +
+                    (n === t ? 'border-yellow-500 text-yellow-700' : 'border-transparent text-gray-500');
+            });
+        }
+        function renderAdminEvents() {
+            const box = document.getElementById('ev-list');
+            if (!box) return;
+            const list = window.eventsData.slice().sort((a, b) => a.tanggal.localeCompare(b.tanggal));
+            box.innerHTML = list.length ? list.map(e => {
+                const jamStr = formatJam(e);
+                const badges = [
+                    e.poster ? '<span class="text-yellow-700 bg-yellow-100 px-2 py-0.5 rounded text-[11px] font-semibold">Poster</span>' : '',
+                    e.video ? '<span class="text-purple-700 bg-purple-100 px-2 py-0.5 rounded text-[11px] font-semibold">Trailer MP4</span>' : ''
+                ].filter(Boolean).join(' ');
+                return `
+                <div class="flex items-start justify-between gap-3 p-3 border rounded-lg">
+                    <div class="min-w-0">
+                        <p class="font-semibold text-gray-900 break-words">${esc(e.judul)}</p>
+                        <p class="text-xs text-gray-500">${esc(rentangTanggal(e))}${jamStr ? ' · ' + esc(jamStr) : ''}${e.lokasi ? ' · ' + esc(e.lokasi) : ''}</p>
+                        ${badges ? `<div class="flex gap-1.5 mt-1">${badges}</div>` : ''}
+                    </div>
+                    <div class="flex gap-3 shrink-0 text-sm">
+                        <button onclick="editEvent('${esc(e.id)}')" class="text-blue-600 hover:underline">Edit</button>
+                        <button onclick="hapusEvent('${esc(e.id)}')" class="text-red-600 hover:underline">Hapus</button>
+                    </div>
+                </div>`;
+            }).join('') : '<p class="text-sm text-gray-500">Belum ada event.</p>';
+        }
+        function editEvent(id) {
+            const e = window.eventsData.find(x => x.id === id);
+            if (!e) return;
+            document.getElementById('ev-id').value = e.id;
+            document.getElementById('ev-judul').value = e.judul || '';
+            document.getElementById('ev-tanggal').value = e.tanggal || '';
+            document.getElementById('ev-selesai').value = e.selesai || '';
+            document.getElementById('ev-jam').value = e.jam || '';
+            document.getElementById('ev-jam-selesai').value = e.jamSelesai || '';
+            document.getElementById('ev-lokasi').value = e.lokasi || '';
+            document.getElementById('ev-ket').value = e.ket || '';
+            document.getElementById('ev-poster-file').value = '';
+            document.getElementById('ev-video-file').value = '';
+            window.eventMediaState = { poster: e.poster || '', video: e.video || '' };
+            setEventMediaStatus('ev-poster-status', e.poster ? 'Poster tersimpan pada event ini.' : '', 'ok');
+            setEventMediaStatus('ev-video-status', e.video ? 'Video trailer MP4 tersimpan pada event ini.' : '', 'ok');
+            document.getElementById('ev-form-title').textContent = 'Edit Event';
+            document.getElementById('ev-btn-label').textContent = 'Simpan Perubahan';
+            document.getElementById('ev-judul').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        function resetFormEvent() {
+            ['ev-id', 'ev-judul', 'ev-tanggal', 'ev-selesai', 'ev-jam', 'ev-jam-selesai', 'ev-lokasi', 'ev-ket', 'ev-poster-file', 'ev-video-file'].forEach(i => {
+                const el = document.getElementById(i);
+                if (el) el.value = '';
+            });
+            window.eventMediaState = { poster: '', video: '' };
+            setEventMediaStatus('ev-poster-status', '', 'ok');
+            setEventMediaStatus('ev-video-status', '', 'ok');
+            const t = document.getElementById('ev-form-title'); if (t) t.textContent = 'Tambah Event';
+            const b = document.getElementById('ev-btn-label'); if (b) b.textContent = 'Simpan Event';
+        }
+        function tampilNotifEvent(pesan, ok) {
+            const n = document.getElementById('notif-event');
+            n.innerHTML = (ok ? '<i class="fa-solid fa-check-circle mr-1"></i> ' : '<i class="fa-solid fa-triangle-exclamation mr-1"></i> ') + esc(pesan);
+            n.className = 'font-bold text-center mt-4 ' + (ok ? 'text-green-600' : 'text-red-600');
+            setTimeout(() => n.classList.add('hidden'), 5000);
+        }
+
+        /* ===== INIT ===== */
+        document.addEventListener('DOMContentLoaded', function () {
+            showSlides(slideIndex);
+            resetInterval();
+            renderTimeline();
+            updateTampilan();
+            renderKalender();
+        });
+    </script>
+
+    <!-- ==================== FIREBASE ==================== -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getFirestore, doc, onSnapshot, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+        import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBEKaZ3ES8ZVlx98C-ZpmHhcrzro9zsQt4",
+            authDomain: "website-gkii.firebaseapp.com",
+            projectId: "website-gkii",
+            storageBucket: "website-gkii.firebasestorage.app",
+            messagingSenderId: "847060109184",
+            appId: "1:847060109184:web:61303fcf3fb4496de32365",
+            measurementId: "G-B992ZN05TJ"
+        };
+
+        const ADMIN_EMAIL = "admin@gkii.or.id";
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+        const ref = doc(db, "site", "content");
+
+        onSnapshot(ref, snap => {
+            window.siteData = snap.exists() ? snap.data() : {};
+            window.updateTampilan();
+        }, err => console.error("Firestore:", err));
+
+        onAuthStateChanged(auth, user => {
+            window.isAdmin = !!user;
+            if (!document.getElementById('admin-modal').classList.contains('hidden')) window.refreshAdminView();
+        });
+
+        window.loginAdmin = async function () {
+            const email = ADMIN_EMAIL;
+            const pass = document.getElementById('admin-pass').value;
+            const err = document.getElementById('login-error');
+            err.classList.add('hidden');
+            try {
+                await signInWithEmailAndPassword(auth, email, pass);
+            } catch (e) {
+                err.textContent = 'Kata sandi salah.';
+                err.classList.remove('hidden');
+            }
+        };
+
+        const refEvents = doc(db, "site", "events");
+        onSnapshot(refEvents, snap => {
+            window.eventsData = snap.exists() ? (snap.data().items || []) : [];
+            window.renderKalender();
+        }, err => console.error("Firestore events:", err));
+
+        async function tulisEvents(items) {
+            const payload = { items: items, updatedAt: serverTimestamp() };
+            const approxBytes = new TextEncoder().encode(JSON.stringify(items)).length;
+            if (approxBytes > 980000) {
+                throw new Error("Total data event terlalu besar untuk 1 dokumen Firestore. Kurangi ukuran poster/video MP4.");
+            }
+            await setDoc(refEvents, payload);
+        }
+
+        window.simpanEvent = async function () {
+            if (!auth.currentUser) { window.tampilNotifEvent('Silakan login terlebih dahulu.', false); return; }
+            const v = id => document.getElementById(id).value.trim();
+            const judul = v('ev-judul');
+            const tanggal = v('ev-tanggal');
+            const selesai = v('ev-selesai');
+            const jam = v('ev-jam');
+            const jamSelesai = v('ev-jam-selesai');
+
+            if (!judul || !tanggal) { window.tampilNotifEvent('Nama acara dan tanggal mulai wajib diisi.', false); return; }
+            if (selesai && selesai < tanggal) { window.tampilNotifEvent('Tanggal selesai tidak boleh sebelum tanggal mulai.', false); return; }
+            if (!selesai && jam && jamSelesai && jamSelesai < jam) {
+                window.tampilNotifEvent('Jam selesai tidak boleh sebelum jam mulai.', false);
+                return;
+            }
+
+            const id = v('ev-id') || (Date.now().toString(36) + Math.random().toString(36).slice(2, 6));
+            const item = {
+                id: id,
+                judul: judul,
+                tanggal: tanggal,
+                selesai: selesai,
+                jam: jam,
+                jamSelesai: jamSelesai,
+                lokasi: v('ev-lokasi'),
+                ket: v('ev-ket'),
+                poster: window.eventMediaState.poster || '',
+                video: window.eventMediaState.video || ''
+            };
+
+            const items = (window.eventsData || []).filter(e => e.id !== id);
+            items.push(item);
+
+            try {
+                await tulisEvents(items);
+                window.resetFormEvent();
+                window.tampilNotifEvent('Event tersimpan.', true);
+            } catch (e) {
+                console.error(e);
+                window.tampilNotifEvent('Gagal menyimpan (' + (e.code || e.message) + ').', false);
+            }
+        };
+
+        window.hapusEvent = async function (id) {
+            if (!auth.currentUser) { window.tampilNotifEvent('Silakan login terlebih dahulu.', false); return; }
+            if (!confirm('Hapus event ini?')) return;
+            try {
+                await tulisEvents((window.eventsData || []).filter(e => e.id !== id));
+                window.tampilNotifEvent('Event dihapus.', true);
+            } catch (e) {
+                console.error(e);
+                window.tampilNotifEvent('Gagal menghapus (' + (e.code || e.message) + ').', false);
+            }
+        };
+
+        window.logoutAdmin = function () { signOut(auth); };
+
+        window.simpanData = async function () {
+            if (!auth.currentUser) { window.tampilNotif('Silakan login terlebih dahulu.', false); return; }
+            const yt = document.getElementById('input-youtube-link').value.trim();
+            if (yt && !window.youtubeEmbedUrl(yt)) {
+                window.tampilNotif('Link YouTube tidak dikenali. Gunakan format youtu.be/... atau youtube.com/watch?v=...', false);
+                return;
+            }
+            const st = window.adminState;
+            const media = st.dihapus ? '' : (st.media || '');
+            if (media.length > 900000) { window.tampilNotif('Gambar terlalu besar. Gunakan gambar lain.', false); return; }
+            const data = {
+                ayat: document.getElementById('input-ayat').value,
+                kitab: document.getElementById('input-kitab').value,
+                wartaJudul: document.getElementById('input-warta-judul').value,
+                wartaIsi: document.getElementById('input-warta-isi').value,
+                youtube: yt,
+                media: media,
+                updatedAt: serverTimestamp()
+            };
+            try {
+                await setDoc(ref, data);
+                window.tampilNotif('Berhasil disimpan! Semua jemaat akan melihat pembaruan ini.', true);
+            } catch (e) {
+                console.error(e);
+                window.tampilNotif('Gagal menyimpan (' + (e.code || e.message) + '). Periksa aturan Firestore.', false);
+            }
+        };
+    </script>
+</body>
+</html>

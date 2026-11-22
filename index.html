@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Logo-Web: ganti href di bawah ini dengan path/URL gambar logo untuk ikon tab browser -->
     <link rel="icon" type="image/png" href="Images/logo GKII.png">
-    <title>Gereja Kristen Injili Indonesia (GKII) Jembatan Dua</title>
+    <title>Gereja Kristen Injili Indonesia (GKII) — Pusat & Taman Surya</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -37,16 +37,16 @@
                     <img src="Images/logo GKII.png" alt="Logo GKII" class="w-10 h-10 object-contain">
                     <div>
                         <h1 class="text-xl font-bold text-gray-900 leading-tight">GKII</h1>
-                        <p class="text-xs text-yellow-600 font-semibold tracking-wide">Jembatan Dua</p>
+                        <p class="text-xs text-yellow-600 font-semibold tracking-wide"></p>
                     </div>
                 </div>
 
                 <div class="hidden md:flex space-x-6 items-center">
                     <button onclick="navigate('home')" class="text-gray-700 hover:text-yellow-500 font-medium transition">Beranda</button>
                     <button onclick="navigateAndScroll('sejarah')" class="text-gray-700 hover:text-yellow-500 font-medium transition">Sejarah</button>
-                    <button onclick="navigateAndScroll('jadwal')" class="text-gray-700 hover:text-yellow-500 font-medium transition">Jadwal Kebaktian</button>
+                    <button onclick="navigateAndScroll('jadwal')" class="text-gray-700 hover:text-yellow-500 font-medium transition">Jadwal</button>
                     <button onclick="navigateAndScroll('persembahan')" class="text-gray-700 hover:text-yellow-500 font-medium transition">Persembahan</button>
-                    <button onclick="navigate('event')" class="text-gray-700 hover:text-yellow-500 font-medium transition"><i class="fa-regular fa-calendar-days mr-1"></i> Kalender Event</button>
+                    <button onclick="navigate('event')" class="text-gray-700 hover:text-yellow-500 font-medium transition"><i class="fa-regular fa-calendar-days mr-1"></i> Event</button>
                     <a href="https://remajagkii.vercel.app/" target="_blank" rel="noopener" class="text-purple-600 hover:text-purple-800 font-semibold transition">Remaja <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
                     <button onclick="openAdmin()" title="Admin" class="text-gray-400 hover:text-yellow-500 transition"><i class="fa-solid fa-lock"></i></button>
                 </div>
@@ -60,13 +60,13 @@
         </div>
 
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-4 pt-2 pb-4 space-y-2">
-            <button onclick="navigate('home'); toggleMobileMenu()" class="w-full text-left px-3 py-2 text-gray-700 hover:bg-yellow-50 rounded-md">Beranda</button>
-            <button onclick="navigateAndScroll('sejarah'); toggleMobileMenu()" class="w-full text-left px-3 py-2 text-gray-700 hover:bg-yellow-50 rounded-md">Sejarah</button>
-            <button onclick="navigateAndScroll('jadwal'); toggleMobileMenu()" class="w-full text-left px-3 py-2 text-gray-700 hover:bg-yellow-50 rounded-md">Jadwal Kebaktian</button>
-            <button onclick="navigateAndScroll('persembahan'); toggleMobileMenu()" class="w-full text-left px-3 py-2 text-gray-700 hover:bg-yellow-50 rounded-md">Persembahan</button>
-            <button onclick="navigate('event'); toggleMobileMenu()" class="w-full text-left px-3 py-2 text-gray-700 hover:bg-yellow-50 rounded-md"><i class="fa-regular fa-calendar-days mr-1"></i> Kalender Event</button>
-            <a href="https://remajagkii.vercel.app/" target="_blank" rel="noopener" class="block w-full text-left px-3 py-2 text-purple-600 font-semibold hover:bg-purple-50 rounded-md">Website Remaja <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
-            <button onclick="openAdmin(); toggleMobileMenu()" class="w-full text-left px-3 py-2 text-gray-500 hover:bg-yellow-50 rounded-md"><i class="fa-solid fa-lock mr-1"></i> Admin</button>
+            <button onclick="navigate('home'); toggleMobileMenu()" class="block w-full text-left py-2 text-gray-700 hover:bg-yellow-50 rounded-md px-2">Beranda</button>
+            <button onclick="navigateAndScroll('sejarah'); toggleMobileMenu()" class="block w-full text-left py-2 text-gray-700 hover:bg-yellow-50 rounded-md px-2">Sejarah</button>
+            <button onclick="navigateAndScroll('jadwal'); toggleMobileMenu()" class="block w-full text-left py-2 text-gray-700 hover:bg-yellow-50 rounded-md px-2">Jadwal Kebaktian</button>
+            <button onclick="navigateAndScroll('persembahan'); toggleMobileMenu()" class="block w-full text-left py-2 text-gray-700 hover:bg-yellow-50 rounded-md px-2">Persembahan</button>
+            <button onclick="navigate('event'); toggleMobileMenu()" class="block w-full text-left py-2 text-gray-700 hover:bg-yellow-50 rounded-md px-2"><i class="fa-regular fa-calendar-days mr-1"></i> Kalender Event</button>
+            <a href="https://remajagkii.vercel.app/" target="_blank" rel="noopener" class="block w-full text-left py-2 text-purple-600 font-semibold hover:bg-purple-50 rounded-md px-2">Website Remaja <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
+            <button onclick="openAdmin(); toggleMobileMenu()" class="block w-full text-left py-2 text-gray-500 hover:bg-yellow-50 rounded-md px-2"><i class="fa-solid fa-lock mr-1"></i> Admin</button>
         </div>
     </nav>
 
@@ -82,7 +82,7 @@
                         <img src="Images/halamn utama.png" alt="Ibadah" class="w-full h-full object-cover opacity-60">
                         <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
                             <h2 class="text-4xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg">Selamat Datang di GKII</h2>
-                            <p class="text-lg md:text-2xl text-yellow-300 font-medium drop-shadow-md">Jemaat Jembatan Dua</p>
+                            <p class="text-lg md:text-2xl text-yellow-300 font-medium drop-shadow-md"></p>
                         </div>
                     </div>
                     <div class="slide absolute inset-0 fade hidden">
@@ -121,36 +121,70 @@
                 </div>
             </section>
 
-            <!-- Ayat Harian -->
+            <!-- Ayat Harian (2 Kolom Sebelahan) -->
             <section id="ayat" class="py-12 bg-yellow-50">
-                <div class="max-w-4xl mx-auto px-4 text-center">
-                    <div class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-yellow-400 relative">
-                        <i class="fa-solid fa-quote-left text-4xl text-yellow-200 absolute top-4 left-6"></i>
-                        <h3 class="text-sm font-bold text-yellow-600 uppercase tracking-widest mb-4">Ayat Harian</h3>
-                        <p id="text-ayat" class="text-xl md:text-2xl text-gray-800 font-serif italic mb-6 relative z-10">"Sebab Aku ini mengetahui rancangan-rancangan apa yang ada pada-Ku mengenai kamu, demikianlah firman TUHAN, yaitu rancangan damai sejahtera dan bukan rancangan kecelakaan, untuk memberikan kepadamu hari depan yang penuh harapan."</p>
-                        <p id="text-kitab" class="font-bold text-gray-900">- Yeremia 29:11 -</p>
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <!-- Kiri: GKII Pusat (Jembatan Dua) -->
+                        <div class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-yellow-400 relative text-center flex flex-col justify-between">
+                            <i class="fa-solid fa-quote-left text-4xl text-yellow-200 absolute top-4 left-6"></i>
+                            <div>
+                                <h3 class="text-xs font-bold text-yellow-600 uppercase tracking-widest mb-4">Ayat Harian — GKII Pusat (Jembatan Dua)</h3>
+                                <p id="text-ayat-pusat" class="text-lg md:text-xl text-gray-800 font-serif italic mb-6 relative z-10">"Sebab Aku ini mengetahui rancangan-rancangan apa yang ada pada-Ku mengenai kamu, demikianlah firman TUHAN, yaitu rancangan damai sejahtera dan bukan rancangan kecelakaan, untuk memberikan kepadamu hari depan yang penuh harapan."</p>
+                            </div>
+                            <p id="text-kitab-pusat" class="font-bold text-gray-900">- Yeremia 29:11 -</p>
+                        </div>
+
+                        <!-- Kanan: GKII Taman Surya -->
+                        <div class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-amber-500 relative text-center flex flex-col justify-between">
+                            <i class="fa-solid fa-quote-left text-4xl text-amber-200 absolute top-4 left-6"></i>
+                            <div>
+                                <h3 class="text-xs font-bold text-amber-600 uppercase tracking-widest mb-4">Ayat Harian — GKII Taman Surya</h3>
+                                <p id="text-ayat-tamansurya" class="text-lg md:text-xl text-gray-800 font-serif italic mb-6 relative z-10">"Sebab Aku ini mengetahui rancangan-rancangan apa yang ada pada-Ku mengenai kamu, demikianlah firman TUHAN, yaitu rancangan damai sejahtera dan bukan rancangan kecelakaan, untuk memberikan kepadamu hari depan yang penuh harapan."</p>
+                            </div>
+                            <p id="text-kitab-tamansurya" class="font-bold text-gray-900">- Yeremia 29:11 -</p>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Warta Jemaat -->
+            <!-- Warta Jemaat (2 Kolom Sebelahan) -->
             <section id="warta" class="py-12 bg-white scroll-mt-20">
-                <div class="max-w-5xl mx-auto px-4">
-                    <div class="text-center mb-8">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-10">
                         <h2 class="text-3xl font-bold text-gray-900">Warta Jemaat</h2>
                         <div class="w-24 h-1 bg-yellow-400 mx-auto mt-4 rounded-full"></div>
                     </div>
-                    <div class="bg-blue-50 p-6 md:p-8 rounded-2xl border border-blue-100 flex flex-col md:flex-row gap-6 items-center shadow-sm">
-                        <div id="warta-media-container" class="w-full md:w-1/2 hidden">
-                            <img id="img-warta" src="" alt="Warta" class="w-full rounded-xl shadow-md hidden object-cover max-h-[300px]">
-                            <video id="vid-warta" src="" controls class="w-full rounded-xl shadow-md hidden max-h-[300px]"></video>
-                            <div id="youtube-container" class="w-full aspect-video hidden">
-                                <iframe id="iframe-youtube" src="" class="w-full h-full rounded-xl shadow-md" frameborder="0" allowfullscreen></iframe>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                        <!-- Kiri: GKII Pusat (Jembatan Dua) -->
+                        <div class="bg-blue-50 p-6 md:p-8 rounded-2xl border border-blue-100 shadow-sm">
+                            <div class="flex items-center justify-between mb-4 pb-2 border-b border-blue-200">
+                                <span class="text-xs font-bold uppercase tracking-wider text-blue-800 bg-blue-100 px-3 py-1 rounded-full">GKII Pusat (Jembatan Dua)</span>
                             </div>
+                            <div id="warta-media-container-pusat" class="w-full hidden mb-5">
+                                <img id="img-warta-pusat" src="" alt="Warta GKII Pusat" class="w-full rounded-xl shadow-md hidden object-cover max-h-[280px]">
+                                <div id="youtube-container-pusat" class="w-full aspect-video hidden">
+                                    <iframe id="iframe-youtube-pusat" src="" class="w-full h-full rounded-xl shadow-md" frameborder="0" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                            <h3 id="text-warta-judul-pusat" class="text-2xl font-bold text-gray-900 mb-3">Tidak Ada Warta Terbaru</h3>
+                            <p id="text-warta-isi-pusat" class="text-gray-700 whitespace-pre-line leading-relaxed">Tunggu pembaruan warta berikutnya dari sekretariat.</p>
                         </div>
-                        <div class="w-full">
-                            <h3 id="text-warta-judul" class="text-2xl font-bold text-gray-900 mb-3">Tidak Ada Warta Terbaru</h3>
-                            <p id="text-warta-isi" class="text-gray-700 whitespace-pre-line leading-relaxed">Tunggu pembaruan warta berikutnya dari sekretariat.</p>
+
+                        <!-- Kanan: GKII Taman Surya -->
+                        <div class="bg-amber-50 p-6 md:p-8 rounded-2xl border border-amber-100 shadow-sm">
+                            <div class="flex items-center justify-between mb-4 pb-2 border-b border-amber-200">
+                                <span class="text-xs font-bold uppercase tracking-wider text-amber-900 bg-amber-100 px-3 py-1 rounded-full">GKII Taman Surya</span>
+                            </div>
+                            <div id="warta-media-container-tamansurya" class="w-full hidden mb-5">
+                                <img id="img-warta-tamansurya" src="" alt="Warta GKII Taman Surya" class="w-full rounded-xl shadow-md hidden object-cover max-h-[280px]">
+                                <div id="youtube-container-tamansurya" class="w-full aspect-video hidden">
+                                    <iframe id="iframe-youtube-tamansurya" src="" class="w-full h-full rounded-xl shadow-md" frameborder="0" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                            <h3 id="text-warta-judul-tamansurya" class="text-2xl font-bold text-gray-900 mb-3">Tidak Ada Warta Terbaru</h3>
+                            <p id="text-warta-isi-tamansurya" class="text-gray-700 whitespace-pre-line leading-relaxed">Tunggu pembaruan warta berikutnya dari sekretariat.</p>
                         </div>
                     </div>
                 </div>
@@ -211,7 +245,7 @@
                                 <li class="flex flex-col"><span class="font-semibold text-yellow-600">Kebaktian Umum 1 (Mandarin Indonesia)</span><span class="flex items-center text-sm mt-1"><i class="fa-regular fa-clock w-5 text-gray-400"></i> 07:00 WIB</span></li>
                                 <li class="flex flex-col"><span class="font-semibold text-yellow-600">Kebaktian Umum 2</span><span class="flex items-center text-sm mt-1"><i class="fa-regular fa-clock w-5 text-gray-400"></i> 09:30 WIB</span></li>
                             </ul>
-                            <div class="mt-4 pt-3 border-t text-sm text-gray-500"><i class="fa-solid fa-location-dot w-5 text-gray-400"></i> Lantai 3 Ruang Ibadah Utama</div>
+                            <div class="mt-4 pt-3 border-t text-sm text-gray-500"><i class="fa-solid fa-location-dot w-5 text-gray-400"></i> Ruang Ibadah Utama</div>
                         </div>
 
                         <div class="bg-slate-50 border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow hover:border-yellow-400">
@@ -220,7 +254,7 @@
                             <ul class="space-y-4 text-gray-700">
                                 <li class="flex flex-col"><span class="font-semibold text-yellow-600">Ibadah Anak</span><span class="flex items-center text-sm mt-1"><i class="fa-regular fa-clock w-5 text-gray-400"></i> 09:30 WIB</span></li>
                             </ul>
-                            <div class="mt-4 pt-3 border-t text-sm text-gray-500"><i class="fa-solid fa-location-dot w-5 text-gray-400"></i> Sekolah Kristen Yusuf</div>
+                            <div class="mt-4 pt-3 border-t text-sm text-gray-500"><i class="fa-solid fa-location-dot w-5 text-gray-400"></i> Ruang Ibadah Anak</div>
                         </div>
 
                         <div class="bg-slate-50 border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow hover:border-yellow-400">
@@ -230,7 +264,7 @@
                                 <li class="flex flex-col"><span class="font-semibold text-yellow-600">Tunas Remaja (Turem)</span><span class="flex items-center text-sm mt-1"><i class="fa-regular fa-clock w-5 text-gray-400"></i> 08:30 WIB</span></li>
                                 <li class="flex flex-col"><span class="font-semibold text-yellow-600">Komisi Remaja (Korem)</span><span class="flex items-center text-sm mt-1"><i class="fa-regular fa-clock w-5 text-gray-400"></i> 10:00 WIB</span></li>
                             </ul>
-                            <div class="mt-4 pt-3 border-t text-sm text-gray-500"><i class="fa-solid fa-location-dot w-5 text-gray-400"></i> Lantai 2 Ruang Persekutuan</div>
+                            <div class="mt-4 pt-3 border-t text-sm text-gray-500"><i class="fa-solid fa-location-dot w-5 text-gray-400"></i> Ruang Persekutuan Remaja</div>
                         </div>
 
                         <div class="bg-slate-50 border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow hover:border-yellow-400">
@@ -239,7 +273,7 @@
                             <ul class="space-y-4 text-gray-700">
                                 <li class="flex flex-col"><span class="font-semibold text-yellow-600">Ibadah Pemuda</span><span class="flex items-center text-sm mt-1"><i class="fa-regular fa-clock w-5 text-gray-400"></i> 11:00 WIB</span></li>
                             </ul>
-                            <div class="mt-4 pt-3 border-t text-sm text-gray-500"><i class="fa-solid fa-location-dot w-5 text-gray-400"></i> Lantai 3 Ruang Ibadah Utama</div>
+                            <div class="mt-4 pt-3 border-t text-sm text-gray-500"><i class="fa-solid fa-location-dot w-5 text-gray-400"></i> Ruang Ibadah Utama</div>
                         </div>
                     </div>
 
@@ -279,7 +313,7 @@
                         <div class="flex flex-col md:flex-row">
                             <div class="w-full md:w-1/2 bg-gray-100 p-6 flex flex-col items-center justify-center border-r border-gray-200">
                                 <h3 class="text-xl font-bold text-gray-800 mb-4">Scan QRIS</h3>
-                                <img src="Images/qris_GKII.jpeg" alt="QRIS GKII Jembatan Dua" class="max-w-[250px] w-full rounded-lg shadow-md border-4 border-white">
+                                <img src="Images/qris_GKII.jpeg" alt="QRIS GKII" class="max-w-[250px] w-full rounded-lg shadow-md border-4 border-white">
                             </div>
                             <div class="w-full md:w-1/2 p-8">
                                 <h3 class="text-xl font-bold text-gray-800 mb-4 border-b pb-2">Transfer Rekening BCA</h3>
@@ -305,34 +339,68 @@
             </section>
         </div>
 
-        <!-- ==================== HALAMAN KALENDER EVENT ==================== -->
+        <!-- ==================== HALAMAN KALENDER EVENT (2 KOLOM SEBELAHAN) ==================== -->
         <div id="page-event" class="hidden py-10 max-w-7xl mx-auto px-4 w-full">
             <div class="text-center mb-8">
                 <h2 class="text-3xl font-bold text-gray-900"><i class="fa-regular fa-calendar-days text-yellow-500 mr-3"></i>Kalender Event GKII</h2>
-                <p class="mt-4 text-gray-600">Jadwal kegiatan dan acara gereja yang akan datang.</p>
+                <p class="mt-2 text-gray-600">Jadwal kegiatan dan acara GKII Pusat (Jembatan Dua) &amp; GKII Taman Surya.</p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <!-- Kalender bulanan -->
-                <div class="lg:col-span-2 bg-white rounded-xl shadow-lg border border-gray-200 p-4 md:p-6">
-                    <div class="flex items-center justify-between mb-4">
-                        <button onclick="gantiBulan(-1)" class="w-10 h-10 rounded-full hover:bg-yellow-50 text-gray-600" aria-label="Bulan sebelumnya"><i class="fa-solid fa-chevron-left"></i></button>
-                        <div class="text-center">
-                            <h3 id="cal-title" class="text-lg md:text-xl font-bold text-gray-900"></h3>
-                            <button onclick="keHariIni()" class="text-xs text-yellow-600 hover:underline font-semibold">Hari ini</button>
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-8 items-start">
+                <!-- KOLOM KIRI: GKII PUSAT (JEMBATAN DUA) -->
+                <div class="bg-slate-100/70 p-4 md:p-6 rounded-2xl border border-gray-200">
+                    <div class="mb-4 flex items-center justify-between">
+                        <h3 class="text-lg font-bold text-gray-900"><span class="inline-block w-2.5 h-2.5 rounded-full bg-yellow-500 mr-2"></span>GKII Pusat (Jembatan Dua)</h3>
+                    </div>
+                    <div class="space-y-5">
+                        <div class="bg-white rounded-xl shadow-md border border-gray-200 p-4 md:p-5">
+                            <div class="flex items-center justify-between mb-4">
+                                <button onclick="gantiBulan('pusat', -1)" class="w-9 h-9 rounded-full hover:bg-yellow-50 text-gray-600" aria-label="Bulan sebelumnya"><i class="fa-solid fa-chevron-left"></i></button>
+                                <div class="text-center">
+                                    <h4 id="cal-title-pusat" class="text-base md:text-lg font-bold text-gray-900"></h4>
+                                    <button onclick="keHariIni('pusat')" class="text-xs text-yellow-600 hover:underline font-semibold">Hari ini</button>
+                                </div>
+                                <button onclick="gantiBulan('pusat', 1)" class="w-9 h-9 rounded-full hover:bg-yellow-50 text-gray-600" aria-label="Bulan berikutnya"><i class="fa-solid fa-chevron-right"></i></button>
+                            </div>
+                            <div class="grid grid-cols-7 text-center text-xs font-bold text-gray-500 mb-2">
+                                <div class="text-red-500">Min</div><div>Sen</div><div>Sel</div><div>Rab</div><div>Kam</div><div>Jum</div><div>Sab</div>
+                            </div>
+                            <div id="cal-grid-pusat" class="grid grid-cols-7 gap-1"></div>
                         </div>
-                        <button onclick="gantiBulan(1)" class="w-10 h-10 rounded-full hover:bg-yellow-50 text-gray-600" aria-label="Bulan berikutnya"><i class="fa-solid fa-chevron-right"></i></button>
+
+                        <div class="bg-white rounded-xl shadow-md border border-gray-200 p-4 md:p-5">
+                            <h4 id="cal-detail-title-pusat" class="text-base font-bold text-gray-900 mb-3 pb-2 border-b"></h4>
+                            <div id="cal-detail-pusat" class="space-y-3"></div>
+                        </div>
                     </div>
-                    <div class="grid grid-cols-7 text-center text-xs font-bold text-gray-500 mb-2">
-                        <div class="text-red-500">Min</div><div>Sen</div><div>Sel</div><div>Rab</div><div>Kam</div><div>Jum</div><div>Sab</div>
-                    </div>
-                    <div id="cal-grid" class="grid grid-cols-7 gap-1"></div>
                 </div>
 
-                <!-- Detail / acara mendatang -->
-                <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-4 md:p-6">
-                    <h3 id="cal-detail-title" class="text-lg font-bold text-gray-900 mb-4 pb-2 border-b"></h3>
-                    <div id="cal-detail" class="space-y-4"></div>
+                <!-- KOLOM KANAN: GKII TAMAN SURYA -->
+                <div class="bg-amber-50/70 p-4 md:p-6 rounded-2xl border border-amber-200">
+                    <div class="mb-4 flex items-center justify-between">
+                        <h3 class="text-lg font-bold text-gray-900"><span class="inline-block w-2.5 h-2.5 rounded-full bg-amber-600 mr-2"></span>GKII Taman Surya</h3>
+                    </div>
+                    <div class="space-y-5">
+                        <div class="bg-white rounded-xl shadow-md border border-gray-200 p-4 md:p-5">
+                            <div class="flex items-center justify-between mb-4">
+                                <button onclick="gantiBulan('tamansurya', -1)" class="w-9 h-9 rounded-full hover:bg-amber-50 text-gray-600" aria-label="Bulan sebelumnya"><i class="fa-solid fa-chevron-left"></i></button>
+                                <div class="text-center">
+                                    <h4 id="cal-title-tamansurya" class="text-base md:text-lg font-bold text-gray-900"></h4>
+                                    <button onclick="keHariIni('tamansurya')" class="text-xs text-amber-700 hover:underline font-semibold">Hari ini</button>
+                                </div>
+                                <button onclick="gantiBulan('tamansurya', 1)" class="w-9 h-9 rounded-full hover:bg-amber-50 text-gray-600" aria-label="Bulan berikutnya"><i class="fa-solid fa-chevron-right"></i></button>
+                            </div>
+                            <div class="grid grid-cols-7 text-center text-xs font-bold text-gray-500 mb-2">
+                                <div class="text-red-500">Min</div><div>Sen</div><div>Sel</div><div>Rab</div><div>Kam</div><div>Jum</div><div>Sab</div>
+                            </div>
+                            <div id="cal-grid-tamansurya" class="grid grid-cols-7 gap-1"></div>
+                        </div>
+
+                        <div class="bg-white rounded-xl shadow-md border border-gray-200 p-4 md:p-5">
+                            <h4 id="cal-detail-title-tamansurya" class="text-base font-bold text-gray-900 mb-3 pb-2 border-b"></h4>
+                            <div id="cal-detail-tamansurya" class="space-y-3"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -342,16 +410,28 @@
     <!-- Footer -->
     <footer class="bg-gray-900 text-gray-300 py-10 border-t-4 border-yellow-500 mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Alamat GKII Pusat (Jembatan Dua) -->
                 <div class="text-center md:text-left">
-                    <h2 class="text-2xl font-bold text-white mb-2"><span class="text-yellow-400">GKII</span> Jembatan Dua</h2>
-                    <p class="text-sm mb-4">Gereja Kristen Injili Indonesia</p>
-                    <a href="https://maps.app.goo.gl/rQRdwkJdEazDFXut7" target="_blank" class="text-sm text-gray-400 hover:text-yellow-400 flex items-start gap-2 justify-center md:justify-start">
+                    <h2 class="text-xl font-bold text-white mb-2"><span class="text-yellow-400">GKII</span> Pusat (Jembatan Dua)</h2>
+                    <p class="text-xs text-gray-400 mb-3">Gereja Kristen Injili Indonesia</p>
+                    <a href="https://maps.app.goo.gl/rQRdwkJdEazDFXut7" target="_blank" rel="noopener" class="text-sm text-gray-400 hover:text-yellow-400 flex items-start gap-2 justify-center md:justify-start">
                         <i class="fa-solid fa-map-location-dot mt-1 text-yellow-500"></i>
                         <span>Blok K1 No, Jl. Arwana Raya<br>Jl. Jembatan Dua Raya No.2, RT.13/RW.2,<br>Pejagalan, Penjaringan, Jakarta Utara 14450</span>
                     </a>
                 </div>
 
+                <!-- Alamat GKII Taman Surya -->
+                <div class="text-center md:text-left">
+                    <h2 class="text-xl font-bold text-white mb-2"><span class="text-amber-400">GKII</span> Taman Surya</h2>
+                    <p class="text-xs text-gray-400 mb-3">Gereja Kristen Injili Indonesia</p>
+                    <a href="https://www.google.com/maps/place/GKII+Taman+Surya/@-6.1328743,106.7179335,17z/data=!3m1!4b1!4m6!3m5!1s0x2e6a02ac1bfbf011:0x882b9c8c30ad42d1!8m2!3d-6.1328743!4d106.7179335!16s%2Fg%2F1s049wjc6?entry=ttu&g_ep=EgoyMDI2MTExOC4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="text-sm text-gray-400 hover:text-amber-400 flex items-start gap-2 justify-center md:justify-start">
+                        <i class="fa-solid fa-map-location-dot mt-1 text-amber-500"></i>
+                        <span>Taman Surya 3 Blok K1 No. 3, Jl. Taman Palem Lestari,<br>RT.1/RW.13, Pegadungan, Kec. Kalideres,<br>Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11730</span>
+                    </a>
+                </div>
+
+                <!-- Hubungi Kami -->
                 <div class="text-center md:text-left">
                     <h3 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Hubungi Kami</h3>
                     <ul class="space-y-3">
@@ -360,6 +440,7 @@
                     </ul>
                 </div>
 
+                <!-- Media Sosial -->
                 <div class="text-center md:text-left flex flex-col items-center md:items-start">
                     <h3 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Media Sosial</h3>
                     <div class="flex space-x-4">
@@ -377,7 +458,7 @@
                 </div>
             </div>
             <div class="mt-8 text-center text-sm text-gray-600 border-t border-gray-800 pt-6">
-                &copy; 2026 GKII Jembatan Dua. All rights reserved.
+                &copy; 2026 GKII. All rights reserved.
                 <button onclick="openAdmin()" class="ml-3 text-gray-700 hover:text-yellow-500 transition" title="Admin"><i class="fa-solid fa-lock"></i></button>
             </div>
         </div>
@@ -401,12 +482,22 @@
 
             <!-- Panel -->
             <div id="admin-panel" class="hidden p-8">
-                <div class="flex justify-between items-start mb-6 border-b pb-4">
-                    <h2 class="text-xl font-bold text-gray-900"><i class="fa-solid fa-gear text-yellow-500 mr-2"></i>Panel Admin GKII</h2>
+                <div class="flex justify-between items-start mb-4 border-b pb-4">
+                    <div>
+                        <h2 class="text-xl font-bold text-gray-900"><i class="fa-solid fa-gear text-yellow-500 mr-2"></i>Panel Admin GKII</h2>
+                        <p class="text-xs text-gray-500 mt-1">Target kelola: <strong id="admin-target-label" class="text-yellow-700">GKII Pusat (Jembatan Dua)</strong></p>
+                    </div>
                     <div class="flex items-center gap-4">
                         <button onclick="logoutAdmin()" class="text-sm text-gray-500 hover:text-red-600"><i class="fa-solid fa-right-from-bracket mr-1"></i>Keluar</button>
                         <button onclick="closeAdmin()" class="text-gray-400 hover:text-gray-700" aria-label="Tutup"><i class="fa-solid fa-xmark text-xl"></i></button>
                     </div>
+                </div>
+
+                <!-- Pemilih Target Lokasi -->
+                <div class="flex flex-wrap items-center gap-2 mb-5 bg-yellow-50 p-2.5 rounded-xl border border-yellow-200">
+                    <span class="text-xs font-bold text-gray-700 mr-1">Lokasi:</span>
+                    <button type="button" id="adm-btn-pusat" onclick="setAdminLokasi('pusat')" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-yellow-500 text-white">Pusat (Jembatan Dua)</button>
+                    <button type="button" id="adm-btn-tamansurya" onclick="setAdminLokasi('tamansurya')" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-white text-yellow-800 border border-yellow-200">Taman Surya</button>
                 </div>
 
                 <div class="flex gap-2 mb-6 border-b">
@@ -441,9 +532,14 @@
                         <button type="button" onclick="hapusMedia()" class="mt-3 text-sm text-red-600 hover:underline"><i class="fa-solid fa-trash mr-1"></i>Hapus media warta</button>
                     </div>
 
-                    <button onclick="simpanData()" class="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 rounded-lg shadow-md transition">
-                        <i class="fa-solid fa-floppy-disk mr-2"></i> Simpan ke Web Jemaat
-                    </button>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <button onclick="simpanData(false)" class="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 rounded-lg shadow-md transition">
+                            <i class="fa-solid fa-floppy-disk mr-2"></i> Simpan Lokasi Ini
+                        </button>
+                        <button onclick="simpanData(true)" class="w-full bg-gray-800 hover:bg-gray-900 text-white font-bold py-3 rounded-lg shadow-md transition">
+                            <i class="fa-solid fa-copy mr-2"></i> Simpan ke Keduanya
+                        </button>
+                    </div>
                     <p id="notif" class="font-bold text-center mt-4 hidden"></p>
                 </div>
 
@@ -477,7 +573,7 @@
 
                     <div class="mb-3">
                         <label class="block text-xs font-bold text-gray-600 mb-1">Lokasi (opsional)</label>
-                        <input type="text" id="ev-lokasi" class="w-full px-4 py-2 border rounded-lg" placeholder="Contoh: Lantai 3 Ruang Ibadah Utama">
+                        <input type="text" id="ev-lokasi" class="w-full px-4 py-2 border rounded-lg" placeholder="Contoh: Ruang Ibadah Utama">
                     </div>
 
                     <textarea id="ev-ket" rows="3" class="w-full px-4 py-2 border rounded-lg mb-3" placeholder="Keterangan (opsional)"></textarea>
@@ -492,17 +588,18 @@
 
                         <div>
                             <label class="block text-xs font-bold text-gray-700 mb-1"><i class="fa-solid fa-film text-purple-600 mr-1"></i>Video Trailer Event (.mp4, opsional)</label>
-                            <input type="file" id="ev-video-file" accept="video/mp4" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-purple-50 file:text-purple-700 hover:file:bg-purple-100">
-                            <p class="text-xs text-gray-500 mt-1">Format .mp4 ringan (disarankan &le; 900 KB per file agar muat di dokumen Firestore).</p>
+                            <input type="file" id="ev-video-file" accept="video/mp4" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs font-semibold file:bg-purple-50 file:text-purple-700 hover:file:bg-purple-100">
+                            <p class="text-xs text-gray-500 mt-1">Format .mp4 ringan (disarankan &le; 650 KB per file agar muat di dokumen Firestore).</p>
                             <p id="ev-video-status" class="text-xs mt-1 hidden"></p>
                         </div>
 
                         <button type="button" onclick="hapusMediaEvent()" class="text-xs text-red-600 hover:underline"><i class="fa-solid fa-trash mr-1"></i>Hapus poster &amp; video trailer event ini</button>
                     </div>
 
-                    <div class="flex gap-3">
-                        <button onclick="simpanEvent()" class="flex-1 bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 rounded-lg shadow-md transition"><i class="fa-solid fa-floppy-disk mr-2"></i><span id="ev-btn-label">Simpan Event</span></button>
-                        <button onclick="resetFormEvent()" class="px-5 py-3 rounded-lg border text-gray-600 hover:bg-gray-50 font-semibold">Batal</button>
+                    <div class="flex flex-wrap gap-2">
+                        <button onclick="simpanEvent(false)" class="flex-1 bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-4 rounded-lg shadow-md transition"><i class="fa-solid fa-floppy-disk mr-2"></i><span id="ev-btn-label">Simpan Event</span></button>
+                        <button onclick="simpanEvent(true)" class="bg-gray-800 hover:bg-gray-900 text-white font-bold py-3 px-4 rounded-lg shadow-md transition">Simpan Keduanya</button>
+                        <button onclick="resetFormEvent()" class="px-4 py-3 rounded-lg border text-gray-600 hover:bg-gray-50 font-semibold">Batal</button>
                     </div>
                     <p id="notif-event" class="font-bold text-center mt-4 hidden"></p>
 
@@ -515,7 +612,35 @@
     </div>
 
     <script>
-        /* ===== PENGATURAN ===== */
+        /* ===== DATA PER LOKASI ===== */
+        const LOC_NAMES = {
+            pusat: 'GKII Pusat (Jembatan Dua)',
+            tamansurya: 'GKII Taman Surya'
+        };
+
+        window.siteDataByLoc = { pusat: {}, tamansurya: {} };
+        window.eventsDataByLoc = { pusat: [], tamansurya: [] };
+        window.adminTargetLoc = 'pusat';
+        window.isAdmin = false;
+        window.adminState = { media: '', dihapus: false };
+        window.eventMediaState = { poster: '', video: '' };
+
+        function setAdminLokasi(loc) {
+            if (!LOC_NAMES[loc]) return;
+            window.adminTargetLoc = loc;
+            document.getElementById('admin-target-label').textContent = LOC_NAMES[loc];
+            document.getElementById('adm-btn-pusat').className = 'px-3 py-1.5 rounded-lg text-xs font-bold ' +
+                (loc === 'pusat' ? 'bg-yellow-500 text-white' : 'bg-white text-yellow-800 border border-yellow-200');
+            document.getElementById('adm-btn-tamansurya').className = 'px-3 py-1.5 rounded-lg text-xs font-bold ' +
+                (loc === 'tamansurya' ? 'bg-yellow-500 text-white' : 'bg-white text-yellow-800 border border-yellow-200');
+            if (window.isAdmin) {
+                loadAdminWartaForm();
+                renderAdminEvents();
+                resetFormEvent();
+            }
+        }
+
+        /* ===== SEJARAH ===== */
         const SEJARAH = [
             { tahun: "1967", judul: "Ibadah Pertama", icon: "fa-church",
               isi: "Pada 15 Juli 1967, bersamaan dengan dimulainya Sekolah Kristen Yusuf, GKII mengadakan Kebaktian Umum pertama dengan Bahasa Mandarin sebagai bahasa pengantar." },
@@ -528,7 +653,7 @@
             { tahun: "2010", judul: "Peletakan Batu Pertama Gedung Gereja", icon: "fa-trowel-bricks",
               isi: "Pembangunan gedung gereja dimulai dengan peletakan batu pertama." },
             { tahun: "2015", judul: "Peresmian Gedung Gereja Baru", icon: "fa-building-columns",
-              isi: "Gedung gereja baru diresmikan dan menjadi rumah ibadah jemaat GKII Jembatan Dua hingga kini." }
+              isi: "Gedung gereja baru diresmikan dan menjadi rumah ibadah jemaat GKII hingga kini." }
         ];
 
         /* ===== NAVIGASI ===== */
@@ -592,7 +717,7 @@
             document.querySelectorAll('.tl-item').forEach(el => io.observe(el));
         }
 
-        /* ===== MENU INSTAGRAM (tetap terbuka sampai diklik di luar) ===== */
+        /* ===== MENU INSTAGRAM ===== */
         function toggleIg(e) {
             e.stopPropagation();
             const menu = document.getElementById('ig-menu');
@@ -610,17 +735,12 @@
             if (!document.getElementById('ig-wrap').contains(e.target)) closeIg();
         });
 
-        /* ===== TAMPILKAN DATA (Ayat & Warta) - data berasal dari Firebase ===== */
-        window.siteData = {};
-        window.isAdmin = false;
-        window.adminState = { media: '', dihapus: false };
-        window.eventMediaState = { poster: '', video: '' };
-
+        /* ===== TAMPILKAN DATA (Ayat & Warta per Kolom) ===== */
         const DEFAULTS = {
-            ayat: document.getElementById('text-ayat').innerText,
-            kitab: document.getElementById('text-kitab').innerText,
-            judul: document.getElementById('text-warta-judul').innerText,
-            isi: document.getElementById('text-warta-isi').innerText
+            ayat: document.getElementById('text-ayat-pusat').innerText,
+            kitab: document.getElementById('text-kitab-pusat').innerText,
+            judul: document.getElementById('text-warta-judul-pusat').innerText,
+            isi: document.getElementById('text-warta-isi-pusat').innerText
         };
 
         function youtubeEmbedUrl(url) {
@@ -630,20 +750,19 @@
             return m ? 'https://www.youtube.com/embed/' + m[1] : '';
         }
 
-        function updateTampilan() {
-            const d = window.siteData || {};
-            document.getElementById('text-ayat').innerText = d.ayat ? `"${d.ayat}"` : DEFAULTS.ayat;
-            document.getElementById('text-kitab').innerText = d.kitab ? `- ${d.kitab} -` : DEFAULTS.kitab;
-            document.getElementById('text-warta-judul').innerText = d.wartaJudul || DEFAULTS.judul;
-            document.getElementById('text-warta-isi').innerText = d.wartaIsi || DEFAULTS.isi;
+        function updateTampilanLokasi(loc) {
+            const d = (window.siteDataByLoc && window.siteDataByLoc[loc]) || {};
+            document.getElementById('text-ayat-' + loc).innerText = d.ayat ? `"${d.ayat}"` : DEFAULTS.ayat;
+            document.getElementById('text-kitab-' + loc).innerText = d.kitab ? `- ${d.kitab} -` : DEFAULTS.kitab;
+            document.getElementById('text-warta-judul-' + loc).innerText = d.wartaJudul || DEFAULTS.judul;
+            document.getElementById('text-warta-isi-' + loc).innerText = d.wartaIsi || DEFAULTS.isi;
 
-            const box = document.getElementById('warta-media-container');
-            const img = document.getElementById('img-warta');
-            const vid = document.getElementById('vid-warta');
-            const ytBox = document.getElementById('youtube-container');
-            const frame = document.getElementById('iframe-youtube');
+            const box = document.getElementById('warta-media-container-' + loc);
+            const img = document.getElementById('img-warta-' + loc);
+            const ytBox = document.getElementById('youtube-container-' + loc);
+            const frame = document.getElementById('iframe-youtube-' + loc);
 
-            [box, img, vid, ytBox].forEach(el => el.classList.add('hidden'));
+            [box, img, ytBox].forEach(el => el.classList.add('hidden'));
 
             const embed = youtubeEmbedUrl(d.youtube);
             if (embed) {
@@ -658,7 +777,12 @@
             }
         }
 
-        /* ===== ADMIN (tampilan; login & simpan ada di modul Firebase di bawah) ===== */
+        function updateTampilan() {
+            updateTampilanLokasi('pusat');
+            updateTampilanLokasi('tamansurya');
+        }
+
+        /* ===== ADMIN ===== */
         function openAdmin() {
             document.getElementById('admin-modal').classList.remove('hidden');
             document.body.style.overflow = 'hidden';
@@ -677,10 +801,8 @@
             document.getElementById('admin-pass').value = '';
             document.getElementById('login-error').classList.add('hidden');
         }
-        function showPanel() {
-            const d = window.siteData || {};
-            document.getElementById('admin-login').classList.add('hidden');
-            document.getElementById('admin-panel').classList.remove('hidden');
+        function loadAdminWartaForm() {
+            const d = (window.siteDataByLoc && window.siteDataByLoc[window.adminTargetLoc]) || {};
             document.getElementById('input-ayat').value = d.ayat || '';
             document.getElementById('input-kitab').value = d.kitab || '';
             document.getElementById('input-warta-judul').value = d.wartaJudul || '';
@@ -688,8 +810,13 @@
             document.getElementById('input-youtube-link').value = d.youtube || '';
             document.getElementById('input-file-media').value = '';
             window.adminState = { media: d.media || '', dihapus: false };
-            pilihTab('warta'); renderAdminEvents(); resetFormEvent();
             setMediaStatus('', '');
+        }
+        function showPanel() {
+            document.getElementById('admin-login').classList.add('hidden');
+            document.getElementById('admin-panel').classList.remove('hidden');
+            setAdminLokasi(window.adminTargetLoc || 'pusat');
+            pilihTab('warta');
         }
 
         function setMediaStatus(msg, type) {
@@ -706,7 +833,6 @@
             el.className = 'text-xs mt-1 ' + (type === 'err' ? 'text-red-600' : 'text-green-600');
         }
 
-        // Kecilkan gambar (maks ~500 KB) agar muat di dokumen Firestore
         function kompresGambar(file, maxBytes = 500000) {
             return new Promise((resolve, reject) => {
                 const reader = new FileReader();
@@ -777,7 +903,6 @@
                 e.target.value = '';
                 return;
             }
-            // Base64 menambah ukuran ~33%; batasi file mentah ~650 KB agar dokumen Firestore tidak penuh
             if (file.size > 650 * 1024) {
                 setEventMediaStatus('ev-video-status', 'Ukuran file MP4 melebihi batas aman (maks. 650 KB untuk Firestore). Kompres/potong trailer terlebih dahulu.', 'err');
                 e.target.value = '';
@@ -819,10 +944,13 @@
             if (e.key === 'Escape') { closeAdmin(); closeIg(); }
         });
 
-        /* ===== KALENDER EVENT (data dari Firebase, diatur lewat panel admin) ===== */
-        window.eventsData = [];
+        /* ===== KALENDER EVENT (2 KALENDER SEBELAHAN) ===== */
         const BULAN = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
-        let calYear = new Date().getFullYear(), calMonth = new Date().getMonth(), calSelected = null;
+        const nowInit = new Date();
+        const calState = {
+            pusat: { year: nowInit.getFullYear(), month: nowInit.getMonth(), selected: null },
+            tamansurya: { year: nowInit.getFullYear(), month: nowInit.getMonth(), selected: null }
+        };
 
         function pad(n) { return String(n).padStart(2, '0'); }
         function ymd(y, m, d) { return y + '-' + pad(m + 1) + '-' + pad(d); }
@@ -843,16 +971,17 @@
             if (e.jamSelesai) return `Sampai ${e.jamSelesai} WIB`;
             return '';
         }
-        function eventsOn(ds) {
-            return window.eventsData.filter(e => e.tanggal <= ds && ds <= (e.selesai || e.tanggal));
+        function eventsOn(loc, ds) {
+            const list = (window.eventsDataByLoc && window.eventsDataByLoc[loc]) || [];
+            return list.filter(e => e.tanggal <= ds && ds <= (e.selesai || e.tanggal));
         }
         function eventCard(e, showDate) {
             const jamText = formatJam(e);
             const posterHtml = e.poster
-                ? `<img src="${e.poster}" alt="Poster ${esc(e.judul)}" class="w-full rounded-lg mt-2 mb-2 max-h-64 object-cover border border-yellow-100">`
+                ? `<img src="${e.poster}" alt="Poster ${esc(e.judul)}" class="w-full rounded-lg mt-2 mb-2 max-h-60 object-cover border border-yellow-100">`
                 : '';
             const videoHtml = e.video
-                ? `<div class="mt-2"><p class="text-xs font-semibold text-purple-700 mb-1"><i class="fa-solid fa-film mr-1"></i>Trailer Event</p><video src="${e.video}" controls preload="metadata" class="w-full rounded-lg max-h-60 bg-black"></video></div>`
+                ? `<div class="mt-2"><p class="text-xs font-semibold text-purple-700 mb-1"><i class="fa-solid fa-film mr-1"></i>Trailer Event</p><video src="${e.video}" controls preload="metadata" class="w-full rounded-lg max-h-56 bg-black"></video></div>`
                 : '';
 
             return `<div class="p-3.5 rounded-lg bg-yellow-50 border border-yellow-200">
@@ -866,56 +995,66 @@
             </div>`;
         }
 
-        function renderKalender() {
-            const title = document.getElementById('cal-title');
-            if (!title) return;
-            title.textContent = BULAN[calMonth] + ' ' + calYear;
+        function renderKalenderLokasi(loc) {
+            const st = calState[loc];
+            const title = document.getElementById('cal-title-' + loc);
+            if (!title || !st) return;
+            title.textContent = BULAN[st.month] + ' ' + st.year;
 
-            const first = new Date(calYear, calMonth, 1).getDay();
-            const days = new Date(calYear, calMonth + 1, 0).getDate();
+            const first = new Date(st.year, st.month, 1).getDay();
+            const days = new Date(st.year, st.month + 1, 0).getDate();
             const today = todayStr();
             let html = '';
             for (let i = 0; i < first; i++) html += '<div></div>';
             for (let d = 1; d <= days; d++) {
-                const ds = ymd(calYear, calMonth, d);
-                const evs = eventsOn(ds);
-                const isSel = ds === calSelected, isToday = ds === today;
-                const cls = 'relative h-12 md:h-16 rounded-lg border text-sm font-semibold flex flex-col items-center justify-center transition ' +
+                const ds = ymd(st.year, st.month, d);
+                const evs = eventsOn(loc, ds);
+                const isSel = ds === st.selected, isToday = ds === today;
+                const cls = 'relative h-11 md:h-14 rounded-lg border text-sm font-semibold flex flex-col items-center justify-center transition ' +
                     (isSel ? 'bg-yellow-400 text-white border-yellow-500' : isToday ? 'border-yellow-500 text-yellow-700 bg-yellow-50' : 'border-gray-100 hover:bg-yellow-50 text-gray-700');
                 const dots = evs.slice(0, 3).map(() => `<span class="w-1.5 h-1.5 rounded-full ${isSel ? 'bg-white' : 'bg-yellow-500'}"></span>`).join('');
-                html += `<button onclick="pilihHari('${ds}')" class="${cls}"><span>${d}</span>${evs.length ? `<span class="flex gap-0.5 mt-1">${dots}</span>` : ''}</button>`;
+                html += `<button onclick="pilihHari('${loc}', '${ds}')" class="${cls}"><span>${d}</span>${evs.length ? `<span class="flex gap-0.5 mt-1">${dots}</span>` : ''}</button>`;
             }
-            document.getElementById('cal-grid').innerHTML = html;
+            document.getElementById('cal-grid-' + loc).innerHTML = html;
 
-            const dt = document.getElementById('cal-detail-title');
-            const dc = document.getElementById('cal-detail');
-            if (calSelected) {
-                dt.textContent = 'Acara ' + formatTanggal(calSelected);
-                const evs = eventsOn(calSelected);
+            const dt = document.getElementById('cal-detail-title-' + loc);
+            const dc = document.getElementById('cal-detail-' + loc);
+            const allEvs = (window.eventsDataByLoc && window.eventsDataByLoc[loc]) || [];
+            if (st.selected) {
+                dt.textContent = 'Acara ' + formatTanggal(st.selected);
+                const evs = eventsOn(loc, st.selected);
                 dc.innerHTML = evs.length ? evs.map(e => eventCard(e, false)).join('') : '<p class="text-sm text-gray-500">Tidak ada acara pada tanggal ini.</p>';
             } else {
                 dt.textContent = 'Acara Mendatang';
-                const up = window.eventsData.filter(e => (e.selesai || e.tanggal) >= today)
+                const up = allEvs.filter(e => (e.selesai || e.tanggal) >= today)
                     .sort((a, b) => (a.tanggal + (a.jam || '')).localeCompare(b.tanggal + (b.jam || ''))).slice(0, 8);
                 dc.innerHTML = up.length ? up.map(e => eventCard(e, true)).join('') : '<p class="text-sm text-gray-500">Belum ada acara yang dijadwalkan.</p>';
             }
+        }
+
+        function renderKalender() {
+            renderKalenderLokasi('pusat');
+            renderKalenderLokasi('tamansurya');
             renderAdminEvents();
         }
-        function gantiBulan(n) {
-            calMonth += n;
-            if (calMonth < 0) { calMonth = 11; calYear--; }
-            if (calMonth > 11) { calMonth = 0; calYear++; }
-            calSelected = null;
-            renderKalender();
+        function gantiBulan(loc, n) {
+            const st = calState[loc];
+            st.month += n;
+            if (st.month < 0) { st.month = 11; st.year--; }
+            if (st.month > 11) { st.month = 0; st.year++; }
+            st.selected = null;
+            renderKalenderLokasi(loc);
         }
-        function keHariIni() {
+        function keHariIni(loc) {
             const t = new Date();
-            calYear = t.getFullYear(); calMonth = t.getMonth(); calSelected = null;
-            renderKalender();
+            calState[loc].year = t.getFullYear();
+            calState[loc].month = t.getMonth();
+            calState[loc].selected = null;
+            renderKalenderLokasi(loc);
         }
-        function pilihHari(ds) {
-            calSelected = (calSelected === ds) ? null : ds;
-            renderKalender();
+        function pilihHari(loc, ds) {
+            calState[loc].selected = (calState[loc].selected === ds) ? null : ds;
+            renderKalenderLokasi(loc);
         }
 
         /* ===== ADMIN: tab & daftar event ===== */
@@ -929,7 +1068,8 @@
         function renderAdminEvents() {
             const box = document.getElementById('ev-list');
             if (!box) return;
-            const list = window.eventsData.slice().sort((a, b) => a.tanggal.localeCompare(b.tanggal));
+            const list = ((window.eventsDataByLoc && window.eventsDataByLoc[window.adminTargetLoc]) || [])
+                .slice().sort((a, b) => a.tanggal.localeCompare(b.tanggal));
             box.innerHTML = list.length ? list.map(e => {
                 const jamStr = formatJam(e);
                 const badges = [
@@ -948,10 +1088,11 @@
                         <button onclick="hapusEvent('${esc(e.id)}')" class="text-red-600 hover:underline">Hapus</button>
                     </div>
                 </div>`;
-            }).join('') : '<p class="text-sm text-gray-500">Belum ada event.</p>';
+            }).join('') : '<p class="text-sm text-gray-500">Belum ada event untuk lokasi ini.</p>';
         }
         function editEvent(id) {
-            const e = window.eventsData.find(x => x.id === id);
+            const list = (window.eventsDataByLoc && window.eventsDataByLoc[window.adminTargetLoc]) || [];
+            const e = list.find(x => x.id === id);
             if (!e) return;
             document.getElementById('ev-id').value = e.id;
             document.getElementById('ev-judul').value = e.judul || '';
@@ -1016,15 +1157,47 @@
 
         const ADMIN_EMAIL = "admin@gkii.or.id";
 
+        const DOC_MAP = {
+            pusat: {
+                content: ["site", "content_pusat"],
+                events: ["site", "events_pusat"]
+            },
+            tamansurya: {
+                content: ["site", "content_taman_surya"],
+                events: ["site", "events_taman_surya"]
+            }
+        };
+
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
         const auth = getAuth(app);
-        const ref = doc(db, "site", "content");
 
-        onSnapshot(ref, snap => {
-            window.siteData = snap.exists() ? snap.data() : {};
-            window.updateTampilan();
-        }, err => console.error("Firestore:", err));
+        function contentRef(loc) {
+            const p = (DOC_MAP[loc] || DOC_MAP.pusat).content;
+            return doc(db, p[0], p[1]);
+        }
+        function eventsRef(loc) {
+            const p = (DOC_MAP[loc] || DOC_MAP.pusat).events;
+            return doc(db, p[0], p[1]);
+        }
+
+        ['pusat', 'tamansurya'].forEach(loc => {
+            onSnapshot(contentRef(loc), snap => {
+                window.siteDataByLoc[loc] = snap.exists() ? snap.data() : {};
+                window.updateTampilanLokasi(loc);
+                if (window.isAdmin && window.adminTargetLoc === loc && !document.getElementById('admin-modal').classList.contains('hidden')) {
+                    window.loadAdminWartaForm();
+                }
+            }, err => console.error("Firestore content (" + loc + "):", err));
+
+            onSnapshot(eventsRef(loc), snap => {
+                window.eventsDataByLoc[loc] = snap.exists() ? (snap.data().items || []) : [];
+                window.renderKalenderLokasi(loc);
+                if (window.isAdmin && window.adminTargetLoc === loc) {
+                    window.renderAdminEvents();
+                }
+            }, err => console.error("Firestore events (" + loc + "):", err));
+        });
 
         onAuthStateChanged(auth, user => {
             window.isAdmin = !!user;
@@ -1044,22 +1217,16 @@
             }
         };
 
-        const refEvents = doc(db, "site", "events");
-        onSnapshot(refEvents, snap => {
-            window.eventsData = snap.exists() ? (snap.data().items || []) : [];
-            window.renderKalender();
-        }, err => console.error("Firestore events:", err));
-
-        async function tulisEvents(items) {
+        async function tulisEventsKeLokasi(loc, items) {
             const payload = { items: items, updatedAt: serverTimestamp() };
             const approxBytes = new TextEncoder().encode(JSON.stringify(items)).length;
             if (approxBytes > 980000) {
                 throw new Error("Total data event terlalu besar untuk 1 dokumen Firestore. Kurangi ukuran poster/video MP4.");
             }
-            await setDoc(refEvents, payload);
+            await setDoc(eventsRef(loc), payload);
         }
 
-        window.simpanEvent = async function () {
+        window.simpanEvent = async function (keKeduanya = false) {
             if (!auth.currentUser) { window.tampilNotifEvent('Silakan login terlebih dahulu.', false); return; }
             const v = id => document.getElementById(id).value.trim();
             const judul = v('ev-judul');
@@ -1075,9 +1242,8 @@
                 return;
             }
 
-            const id = v('ev-id') || (Date.now().toString(36) + Math.random().toString(36).slice(2, 6));
-            const item = {
-                id: id,
+            const baseId = v('ev-id') || (Date.now().toString(36) + Math.random().toString(36).slice(2, 6));
+            const baseItem = {
                 judul: judul,
                 tanggal: tanggal,
                 selesai: selesai,
@@ -1089,13 +1255,22 @@
                 video: window.eventMediaState.video || ''
             };
 
-            const items = (window.eventsData || []).filter(e => e.id !== id);
-            items.push(item);
+            const targets = keKeduanya ? ['pusat', 'tamansurya'] : [window.adminTargetLoc];
 
             try {
-                await tulisEvents(items);
+                for (const loc of targets) {
+                    const id = keKeduanya ? (v('ev-id') ? `${baseId}_${loc}` : `${baseId}${loc[0]}`) : baseId;
+                    const existing = (window.eventsDataByLoc[loc] || []).filter(e => e.id !== id);
+                    existing.push({ ...baseItem, id });
+                    await tulisEventsKeLokasi(loc, existing);
+                }
                 window.resetFormEvent();
-                window.tampilNotifEvent('Event tersimpan.', true);
+                window.tampilNotifEvent(
+                    keKeduanya
+                        ? 'Event tersimpan untuk GKII Pusat & GKII Taman Surya.'
+                        : 'Event tersimpan untuk ' + LOC_NAMES[window.adminTargetLoc] + '.',
+                    true
+                );
             } catch (e) {
                 console.error(e);
                 window.tampilNotifEvent('Gagal menyimpan (' + (e.code || e.message) + ').', false);
@@ -1105,8 +1280,10 @@
         window.hapusEvent = async function (id) {
             if (!auth.currentUser) { window.tampilNotifEvent('Silakan login terlebih dahulu.', false); return; }
             if (!confirm('Hapus event ini?')) return;
+            const loc = window.adminTargetLoc;
             try {
-                await tulisEvents((window.eventsData || []).filter(e => e.id !== id));
+                const filtered = (window.eventsDataByLoc[loc] || []).filter(e => e.id !== id);
+                await tulisEventsKeLokasi(loc, filtered);
                 window.tampilNotifEvent('Event dihapus.', true);
             } catch (e) {
                 console.error(e);
@@ -1116,7 +1293,7 @@
 
         window.logoutAdmin = function () { signOut(auth); };
 
-        window.simpanData = async function () {
+        window.simpanData = async function (keKeduanya = false) {
             if (!auth.currentUser) { window.tampilNotif('Silakan login terlebih dahulu.', false); return; }
             const yt = document.getElementById('input-youtube-link').value.trim();
             if (yt && !window.youtubeEmbedUrl(yt)) {
@@ -1135,9 +1312,17 @@
                 media: media,
                 updatedAt: serverTimestamp()
             };
+            const targets = keKeduanya ? ['pusat', 'tamansurya'] : [window.adminTargetLoc];
             try {
-                await setDoc(ref, data);
-                window.tampilNotif('Berhasil disimpan! Semua jemaat akan melihat pembaruan ini.', true);
+                for (const loc of targets) {
+                    await setDoc(contentRef(loc), data);
+                }
+                window.tampilNotif(
+                    keKeduanya
+                        ? 'Berhasil disimpan ke GKII Pusat & GKII Taman Surya!'
+                        : 'Berhasil disimpan untuk ' + LOC_NAMES[window.adminTargetLoc] + '!',
+                    true
+                );
             } catch (e) {
                 console.error(e);
                 window.tampilNotif('Gagal menyimpan (' + (e.code || e.message) + '). Periksa aturan Firestore.', false);
